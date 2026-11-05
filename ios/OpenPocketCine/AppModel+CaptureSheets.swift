@@ -13,7 +13,7 @@ typealias CaptureReadoutGesture = CaptureSheetReadoutGesture<AppModel>
 
 extension CaptureLists {
     static let nativeIsoHopHelp =
-        "On: switching D-Log ↔ D-Log2 hops ISO to that curve's starred native if you were still on native. Off: keep the ISO you set."
+        String(localized: "On: switching D-Log ↔ D-Log2 hops ISO to that curve's starred native if you were still on native. Off: keep the ISO you set.")
 }
 
 extension CaptureQuickSnapshot {
@@ -62,16 +62,16 @@ extension AppModel: CaptureSheetHost {
     /// The Osmo audio settings and their reported values.
     static func audioFields(_ status: CameraStatus) -> [CaptureAudioField] {
         [
-            CaptureAudioField(id: .channel, title: "Channel",
+            CaptureAudioField(id: .channel, title: String(localized: "Channel"),
                 choices: AudioChannel.allCases.map(CaptureAudioValue.channel),
                 observed: status.audioChannel.map(CaptureAudioValue.channel)),
-            CaptureAudioField(id: .wind, title: "Wind",
+            CaptureAudioField(id: .wind, title: String(localized: "Wind"),
                 choices: WindNoiseReduction.allCases.map(CaptureAudioValue.wind),
                 observed: status.windNR.map(CaptureAudioValue.wind)),
-            CaptureAudioField(id: .direction, title: "Direction",
+            CaptureAudioField(id: .direction, title: String(localized: "Direction"),
                 choices: DirectionalAudio.allCases.map(CaptureAudioValue.direction),
                 observed: status.directionalAudio.map(CaptureAudioValue.direction)),
-            CaptureAudioField(id: .vocal, title: "Vocal",
+            CaptureAudioField(id: .vocal, title: String(localized: "Vocal"),
                 choices: VocalBoost.allCases.map(CaptureAudioValue.vocal),
                 observed: status.vocalBoost.map(CaptureAudioValue.vocal)),
         ]
@@ -93,7 +93,7 @@ extension AppModel: CaptureSheetHost {
             guard CaptureAudioSourceID(session: current.session, epoch: current.epoch) == sourceID,
                 OsmoMonitorPresentation.capabilities(self.session).audio else { return .unavailable }
             guard self.session.phase == .live, !self.session.isLocked else {
-                self.session.controlNote = "Audio control refused"
+                self.session.controlNote = String(localized: "Audio control refused")
                 return .refused
             }
             switch value {
@@ -184,7 +184,7 @@ extension AppModel: CaptureSheetHost {
         }
         guard let editor, control.isCurrent(editor) else { return }
         if let commonValue = CaptureFocusAdmission.commonValue(label, track: session.status.focusTrack) {
-            control.commit(commonValue, from: editor, label: "FOCUS \(label)")
+            control.commit(commonValue, from: editor, label: String(localized: "FOCUS \(label)"))
         } else {
             session.setFocusOption(option)
         }

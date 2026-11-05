@@ -8,7 +8,7 @@ struct LiveLockButton: View {
 
     var body: some View {
         MonitorChromeButton(
-            locked ? "Unlock monitor controls" : "Lock monitor controls",
+            locked ? String(localized: "Unlock monitor controls") : String(localized: "Lock monitor controls"),
             size: CGSize(width: size, height: size), active: locked
         ) {
             locked.toggle()
@@ -19,8 +19,8 @@ struct LiveLockButton: View {
                 .frame(width: size * 26 / 54, height: size * 26 / 54)
         }
         .sensoryFeedback(.impact(weight: .medium), trigger: locked)
-        .accessibilityLabel(locked ? "Unlock monitor controls" : "Lock monitor controls")
-        .accessibilityHint("Prevents accidental camera and View Assist changes")
+        .accessibilityLabel(locked ? String(localized: "Unlock monitor controls") : String(localized: "Lock monitor controls"))
+        .accessibilityHint(String(localized: "Prevents accidental camera and View Assist changes"))
         .accessibilityIdentifier("monitor.system.lock")
     }
 }

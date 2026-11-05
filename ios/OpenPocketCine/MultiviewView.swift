@@ -184,7 +184,7 @@ struct MultiviewView: View {
             groupBusy: session.groupRecordingBusy,
             confirmsRecord: model.recordConfirmationEnabled,
             network: MultiviewStageButton(
-                title: "Shared Wi-Fi", value: session.ssid, icon: .wifi,
+                title: String(localized: "Shared Wi-Fi"), value: session.ssid, icon: .wifi,
                 enabled: !(session.busy || session.connectingCameras || !startsSession),
                 identifier: "multiview.network"
             ) { showNetwork = true },
@@ -319,10 +319,10 @@ struct MultiviewView: View {
                 MultiviewPickerRow(
                     id: camera.id.uuidString, title: camera.name,
                     detail: camera.hasMultiviewPreview
-                        ? nil : "Try experimental shared Wi-Fi · Preview unavailable",
+                        ? nil : String(localized: "Try experimental shared Wi-Fi · Preview unavailable"),
                     limited: !camera.hasMultiviewPreview)
             },
-            footer: "Each camera will join \(session.ssid). Approve on the camera if asked.",
+            footer: String(localized: "Each camera will join \(session.ssid). Approve on the camera if asked."),
             cancel: {
                 adding = nil
                 selectedCamera = nil

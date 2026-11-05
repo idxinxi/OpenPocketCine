@@ -9,8 +9,8 @@ import SwiftUI
 /// Contrast / Warm / Cool. Custom is imported `.cube` files. The assist-bar
 /// chip is off. Exposure is input-referred stops before the cube (ETTR pull).
 enum LUTAssist {
-    static let exposureTitle = "Exposure"
-    static let exposureHelp = "Input stops before the cube. Pull 1–2 after ETTR."
+    static let exposureTitle = String(localized: "Exposure")
+    static let exposureHelp = String(localized: "Input stops before the cube. Pull 1–2 after ETTR.")
 
     @ViewBuilder
     static func longPressMenu(assist: LiveAssistState) -> some View {
@@ -117,7 +117,7 @@ extension CustomLUTStore {
 extension LUTPickerCopy {
     static let app = LUTPickerCopy(
         officialTab: "DJI",
-        officialLockedCaption: "Official DJI Rec.709 cube",
-        officialCaption: "Official DJI looks for this color / camera",
-        customEmptyHint: "Imported looks land here. Auto stays on Built-in or DJI.")
+        officialLockedCaption: String(localized: "Official DJI Rec.709 cube"),
+        officialCaption: String(localized: "Official DJI looks for this color / camera"),
+        customEmptyHint: String(localized: "Imported looks land here. Auto stays on Built-in or DJI."))
 }

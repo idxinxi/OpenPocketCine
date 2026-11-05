@@ -22,7 +22,7 @@ extension MonitorLegalDocuments {
         wordmark: app.wordmark, privacy: app.privacy,
         terms: OpenPocketCineLinks.terms.map { .link($0) } ?? .unavailable, licenses: app.licenses, notice: app.notice)
 
-    private static let appPrivacy = """
+    private static let appPrivacy = String(localized: """
         OpenPocketCine talks to your Osmo Pocket over Bluetooth and the camera's own Wi-Fi. The app has no account. Automatic error reports are optional and off by default.
 
         OpenCapture is the data controller. Privacy or deletion requests: support@openpocketcine.app.
@@ -48,9 +48,9 @@ extension MonitorLegalDocuments {
         • The source is at github.com/erik-sutton95/OpenPocketCine.
 
         The full privacy policy is https://openpocketcine.app/privacy/
-        """
+        """)
 
-    private static let appTerms = """
+    private static let appTerms = String(localized: """
         OpenPocketCine is free software under the Apache License 2.0. You may use, modify, and share it under that license.
 
         This is an unofficial field monitor. It is not affiliated with, endorsed by, or supported by DJI. "DJI", "Osmo", and "Osmo Pocket" are trademarks of SZ DJI Technology Co., Ltd., used only to identify the cameras the app can talk to.
@@ -60,7 +60,7 @@ extension MonitorLegalDocuments {
         The software is provided on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND. See LICENSE in the repository.
 
         By using the app you agree to follow the Code of Conduct when participating in the project.
-        """
+        """)
 }
 
 /// One legal page in the shared legal screen.

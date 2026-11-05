@@ -2036,3 +2036,18 @@ prepared and inspector payloads after import. Its source is unchanged for this
 Android adoption repair. Automated source qualification and integration are
 tracked in the existing LOOK-7 task handoff. Physical Android verification
 remains untested; this is the recorded qualification exception for this change.
+
+## iOS Simplified Chinese localization
+
+The iOS shell's own copy is localized for Simplified Chinese
+(`Localizable.xcstrings`, `InfoPlist.xcstrings`; see
+`docs/LOCALIZATION-iOS.md` for the mechanism and the deliberate exceptions).
+Android localizes its own shell separately on its own branch; the two shells
+do not share a copy source, so each platform's coverage is recorded on its own
+side. Shared-layer copy (OpenCine `MonitorSettingsCopy.*`, settings section
+titles, capture-sheet labels, `session.phase.label`, the pairing-wizard and
+stage chrome) is still English on both platforms — localizing it needs work in
+the OpenCine repo, not here — and is the recorded exception for this change.
+Physical iOS verification (device language switch walk-through) is still
+pending, as is a Mac build and `just check`; this work was wired and checked
+by script only.

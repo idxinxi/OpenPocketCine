@@ -11,7 +11,7 @@ struct LiveDispToggle: View {
     @Environment(\.interfaceLocked) private var interfaceLocked
 
     var body: some View {
-        MonitorChromeButton("Change display mode", size: size) {
+        MonitorChromeButton(String(localized: "Change display mode"), size: size) {
             guard !interfaceLocked else { return }
             model.assist.clean.toggle()
             if model.assist.clean {
@@ -37,8 +37,8 @@ struct LiveDispToggle: View {
         }
         .disabled(interfaceLocked)
         .sensoryFeedback(.selection, trigger: model.assist.clean)
-        .accessibilityLabel("Change display mode")
-        .accessibilityValue(model.assist.clean ? "DISP 2 clean" : "DISP 1 live")
+        .accessibilityLabel(String(localized: "Change display mode"))
+        .accessibilityValue(model.assist.clean ? String(localized: "DISP 2 clean") : String(localized: "DISP 1 live"))
         .accessibilityIdentifier("monitor.system.display")
     }
 }

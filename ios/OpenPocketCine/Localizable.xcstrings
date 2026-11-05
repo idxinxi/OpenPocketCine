@@ -1,0 +1,3542 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    " · unverified": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " · unverified"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": " · 未验证"
+          }
+        }
+      }
+    },
+    "%@ came back empty — camera AP not up yet": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ came back empty — camera AP not up yet"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 返回为空——相机热点还没起来"
+          }
+        }
+      }
+    },
+    "%@ cameras connected": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ cameras connected"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 台相机已连接"
+          }
+        }
+      }
+    },
+    "%@ isn't D-Log or D-Log2.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ isn't D-Log or D-Log2."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 不是 D-Log 或 D-Log2。"
+          }
+        }
+      }
+    },
+    "%@ joins this iPhone’s hotspot “%@”. Turn on Personal Hotspot and Allow Others to Join (Settings or Control Center), then tap Connect.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ joins this iPhone’s hotspot “%@”. Turn on Personal Hotspot and Allow Others to Join (Settings or Control Center), then tap Connect."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 将加入这台 iPhone 的热点“%@”。请打开个人热点并允许其他人加入（在设置或控制中心里），然后点连接。"
+          }
+        }
+      }
+    },
+    "%@ live · %@ cameras": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ live · %@ cameras"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 台实时 · 共 %@ 台"
+          }
+        }
+      }
+    },
+    "%@ live · %@ reconnecting": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ live · %@ reconnecting"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 台实时 · %@ 台重连中"
+          }
+        }
+      }
+    },
+    "%@ of %@ confirmed · check camera tiles": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ of %@ confirmed · check camera tiles"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / %@ 台已确认 · 请检查各机位"
+          }
+        }
+      }
+    },
+    "%@ of %@ recording": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ of %@ recording"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ / %@ 台正在录制"
+          }
+        }
+      }
+    },
+    "%@ preview": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ preview"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 预览"
+          }
+        }
+      }
+    },
+    "%@ refused (0x%@) — quit Mimo, power-cycle the camera, then tap once": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ refused (0x%@) — quit Mimo, power-cycle the camera, then tap once"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 被拒绝（0x%@）——请退出 Mimo，给相机断电重启，再点一次"
+          }
+        }
+      }
+    },
+    "%@ timed out — camera didn't reply (AP still coming up?)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ timed out — camera didn't reply (AP still coming up?)"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 超时了——相机没回话（它的 Wi-Fi 热点还没起来？）"
+          }
+        }
+      }
+    },
+    "%@: %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：%@"
+          }
+        }
+      }
+    },
+    "%@: no DSP blob": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@: no DSP blob"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@：没有 DSP 数据"
+          }
+        }
+      }
+    },
+    "AF-C": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AF-C"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AF-C"
+          }
+        }
+      }
+    },
+    "AF-S": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AF-S"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AF-S"
+          }
+        }
+      }
+    },
+    "Add camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "添加相机"
+          }
+        }
+      }
+    },
+    "Approve on the camera screen if asked.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Approve on the camera screen if asked."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如果相机有提示，请在相机屏幕上确认。"
+          }
+        }
+      }
+    },
+    "Audio control refused": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Audio control refused"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "音频设置被拒绝"
+          }
+        }
+      }
+    },
+    "Auto": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动"
+          }
+        }
+      }
+    },
+    "Auto LUT": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto LUT"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动 LUT"
+          }
+        }
+      }
+    },
+    "Auto · ": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto · "
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动 · "
+          }
+        }
+      }
+    },
+    "Auto · no conversion needed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Auto · no conversion needed"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "自动 · 无需转换"
+          }
+        }
+      }
+    },
+    "BLE + Wi-Fi active": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "BLE + Wi-Fi active"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "BLE + Wi-Fi 已连接"
+          }
+        }
+      }
+    },
+    "Before pairing, turn off DJI Frame Tap and force quit DJI Mimo.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Before pairing, turn off DJI Frame Tap and force quit DJI Mimo."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "配对之前，请先关掉 DJI Frame Tap，并彻底退出 DJI Mimo。"
+          }
+        }
+      }
+    },
+    "Bluetooth is not ready yet. Try again in a moment.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bluetooth is not ready yet. Try again in a moment."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "蓝牙还没准备好，稍后再试一次。"
+          }
+        }
+      }
+    },
+    "Bluetooth is off. Turn it on in Control Center or Settings, then try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bluetooth is off. Turn it on in Control Center or Settings, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "蓝牙已关闭。请在控制中心或设置里打开蓝牙，然后重试。"
+          }
+        }
+      }
+    },
+    "Bluetooth reached a different camera than the one you tapped. Pocket and Nano are separate — pick the Nano or Pocket row in the list.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bluetooth reached a different camera than the one you tapped. Pocket and Nano are separate — pick the Nano or Pocket row in the list."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "蓝牙连到了另一台相机，不是你点的那台。Pocket 和 Nano 是分开的——请在列表里选 Nano 或 Pocket 那一行。"
+          }
+        }
+      }
+    },
+    "Camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机"
+          }
+        }
+      }
+    },
+    "Camera Wi-Fi could not be restored. Keep it powered on and close Multiview to retry.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera Wi-Fi could not be restored. Keep it powered on and close Multiview to retry."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机 Wi-Fi 无法恢复。请保持相机开机，关闭多机位后重试。"
+          }
+        }
+      }
+    },
+    "Camera control speaks DUML over Bluetooth and the camera's Wi-Fi. No DJI SDK is bundled or required.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera control speaks DUML over Bluetooth and the camera's Wi-Fi. No DJI SDK is bundled or required."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机控制走蓝牙和相机 Wi-Fi 上的 DUML 协议，不内置也不需要 DJI SDK。"
+          }
+        }
+      }
+    },
+    "Camera could not complete this step. Check the Wi-Fi details and try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera could not complete this step. Check the Wi-Fi details and try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机没能完成这一步。请检查 Wi-Fi 信息，再试一次。"
+          }
+        }
+      }
+    },
+    "Camera did not enter playback.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera did not enter playback."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机没有进入回放。"
+          }
+        }
+      }
+    },
+    "Camera did not respond. Close other camera apps and try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera did not respond. Close other camera apps and try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机没有回应。请关掉其他相机应用，再试一次。"
+          }
+        }
+      }
+    },
+    "Camera discovery returned an unavailable address. Tap Reconnect to search again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera discovery returned an unavailable address. Tap Reconnect to search again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机发现返回了一个不可用的地址。点“重新连接”重新搜索。"
+          }
+        }
+      }
+    },
+    "Camera is not nearby. Check that it is powered on.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera is not nearby. Check that it is powered on."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机不在附近。请确认它已开机。"
+          }
+        }
+      }
+    },
+    "Camera is not ready to pair again. Please try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera is not ready to pair again. Please try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机还没准备好重新配对，请再试一次。"
+          }
+        }
+      }
+    },
+    "Camera settings": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Camera settings"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机设置"
+          }
+        }
+      }
+    },
+    "Cameras are using this network. Remove them before changing it.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cameras are using this network. Remove them before changing it."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已有相机在用这个网络，改之前请先移除它们。"
+          }
+        }
+      }
+    },
+    "Cameras changed · try again": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cameras changed · try again"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "机位变了 · 请再试一次"
+          }
+        }
+      }
+    },
+    "Cancel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "取消"
+          }
+        }
+      }
+    },
+    "Center stage": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Center stage"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "居中主画面"
+          }
+        }
+      }
+    },
+    "Change display mode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change display mode"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "切换显示模式"
+          }
+        }
+      }
+    },
+    "Channel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Channel"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "声道"
+          }
+        }
+      }
+    },
+    "Charcoal field-monitor chrome with Sky Blue accents, tuned for low reflection on set.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Charcoal field-monitor chrome with Sky Blue accents, tuned for low reflection on set."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "深灰现场监视器界面配天蓝点缀，现场弱反光下也好读。"
+          }
+        }
+      }
+    },
+    "Check first": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Check first"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "先检查一下"
+          }
+        }
+      }
+    },
+    "Choose one output curve for every selected D-Log or D-Log2 clip. Camera originals stay untouched.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose one output curve for every selected D-Log or D-Log2 clip. Camera originals stay untouched."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "给每个选中的 D-Log 或 D-Log2 片段选一条输出曲线。相机原片不会动。"
+          }
+        }
+      }
+    },
+    "Close anyway": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close anyway"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "仍要关闭"
+          }
+        }
+      }
+    },
+    "Connect": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接"
+          }
+        }
+      }
+    },
+    "Connect the camera to list clips.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect the camera to list clips."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请先连接相机，才能列出片段。"
+          }
+        }
+      }
+    },
+    "Connect to one camera from Your cameras to share its feed with watchers.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connect to one camera from Your cameras to share its feed with watchers."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请先在“你的相机”里连上一台相机，才能把它的画面分享给观看端。"
+          }
+        }
+      }
+    },
+    "Connected": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connected"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "已连接"
+          }
+        }
+      }
+    },
+    "Connecting to your camera…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connecting to your camera…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在连接你的相机…"
+          }
+        }
+      }
+    },
+    "Connecting · approve on camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connecting · approve on camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接中 · 请在相机上点允许"
+          }
+        }
+      }
+    },
+    "Connection attempt failed. Trying again…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connection attempt failed. Trying again…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接失败，正在重试…"
+          }
+        }
+      }
+    },
+    "Connection failed · Options": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connection failed · Options"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "连接失败 · 选项"
+          }
+        }
+      }
+    },
+    "Controls unavailable": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Controls unavailable"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "控制不可用"
+          }
+        }
+      }
+    },
+    "Could not connect": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not connect"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法连接"
+          }
+        }
+      }
+    },
+    "Could not connect preview": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not connect preview"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法连接预览"
+          }
+        }
+      }
+    },
+    "Could not delete that clip.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not delete that clip."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没能删掉这条片段。"
+          }
+        }
+      }
+    },
+    "Could not download that clip.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not download that clip."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没能下载这条片段。"
+          }
+        }
+      }
+    },
+    "Could not find this camera on the shared Wi-Fi. Check that both devices use the same network and that client isolation is off, then tap Reconnect.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not find this camera on the shared Wi-Fi. Check that both devices use the same network and that client isolation is off, then tap Reconnect."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在共享 Wi-Fi 上找不到这台相机。请确认两台设备使用同一网络且已关闭客户端隔离，再点“重新连接”。"
+          }
+        }
+      }
+    },
+    "Could not list camera clips.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not list camera clips."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没能列出相机里的片段。"
+          }
+        }
+      }
+    },
+    "Could not load that thumbnail.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not load that thumbnail."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没能加载这条缩略图。"
+          }
+        }
+      }
+    },
+    "Could not open camera control on the shared Wi-Fi.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not open camera control on the shared Wi-Fi."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法在共享 Wi-Fi 上打开相机控制。"
+          }
+        }
+      }
+    },
+    "Could not open that clip.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not open that clip."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没能打开这条片段。"
+          }
+        }
+      }
+    },
+    "Could not restore preview. Tap Reconnect to try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not restore preview. Tap Reconnect to try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法恢复预览，点“重新连接”再试一次。"
+          }
+        }
+      }
+    },
+    "Could not save camera Wi-Fi cleanup. Try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not save camera Wi-Fi cleanup. Try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "无法保存相机 Wi-Fi 清理信息，请再试一次。"
+          }
+        }
+      }
+    },
+    "Couldn't write the diagnostics report": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't write the diagnostics report"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没能写入诊断报告"
+          }
+        }
+      }
+    },
+    "Couldn’t connect over Camera Wi-Fi": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn’t connect over Camera Wi-Fi"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没能通过相机 Wi-Fi 连上"
+          }
+        }
+      }
+    },
+    "D-Log: D-Log2 cannot zoom": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "D-Log: D-Log2 cannot zoom"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "D-Log：D-Log2 下不能变焦"
+          }
+        }
+      }
+    },
+    "DISP": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DISP"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DISP"
+          }
+        }
+      }
+    },
+    "DISP 1 live": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DISP 1 live"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DISP 1 实时画面"
+          }
+        }
+      }
+    },
+    "DISP 2 clean": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DISP 2 clean"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DISP 2 干净画面"
+          }
+        }
+      }
+    },
+    "DJI Black": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DJI Black"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DJI Black"
+          }
+        }
+      }
+    },
+    "DUML / BLE + Wi-Fi": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DUML / BLE + Wi-Fi"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "DUML / BLE + Wi-Fi"
+          }
+        }
+      }
+    },
+    "Diagnostics copied. Paste into TestFlight feedback": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Diagnostics copied. Paste into TestFlight feedback"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "诊断信息已复制，请粘贴到 TestFlight 反馈里"
+          }
+        }
+      }
+    },
+    "Direction": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Direction"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "指向"
+          }
+        }
+      }
+    },
+    "Disable Auto LUT": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Disable Auto LUT"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "关闭自动 LUT"
+          }
+        }
+      }
+    },
+    "Done": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "完成"
+          }
+        }
+      }
+    },
+    "Each camera will join %@. Approve on the camera if asked.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Each camera will join %@. Approve on the camera if asked."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "每台相机都会加入 %@。如果相机有提示，请在相机上确认。"
+          }
+        }
+      }
+    },
+    "Empty": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Empty"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "空"
+          }
+        }
+      }
+    },
+    "Enable Auto LUT": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enable Auto LUT"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开启自动 LUT"
+          }
+        }
+      }
+    },
+    "Exposure": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exposure"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "曝光"
+          }
+        }
+      }
+    },
+    "Exposure, LUTs and scopes go live as soon as the video link is up.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Exposure, LUTs and scopes go live as soon as the video link is up."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "视频链路一通，曝光、LUT 和示波器就都实时可用了。"
+          }
+        }
+      }
+    },
+    "FOCUS": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FOCUS"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "对焦"
+          }
+        }
+      }
+    },
+    "FOCUS %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "FOCUS %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "对焦 %@"
+          }
+        }
+      }
+    },
+    "Finding camera on Wi-Fi · %@ of 2": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Finding camera on Wi-Fi · %@ of 2"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在共享 Wi-Fi 上查找相机 · 第 %@ 次，共 2 次"
+          }
+        }
+      }
+    },
+    "Format": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Format"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "格式"
+          }
+        }
+      }
+    },
+    "Frame Too Small": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frame Too Small"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "画面帧过小"
+          }
+        }
+      }
+    },
+    "Frame rate unconfirmed; choose the shutter angle again": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frame rate unconfirmed; choose the shutter angle again"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "帧率还没确认，请再选一次快门角度"
+          }
+        }
+      }
+    },
+    "Grid": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Grid"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "网格"
+          }
+        }
+      }
+    },
+    "HDR/HLG color mode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HDR/HLG color mode"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "HDR/HLG 色彩模式"
+          }
+        }
+      }
+    },
+    "ISO": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ISO"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ISO"
+          }
+        }
+      }
+    },
+    "If the camera shows Approve, tap it on that camera's screen. First-time pairing can wait up to 90 seconds.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "If the camera shows Approve, tap it on that camera's screen. First-time pairing can wait up to 90 seconds."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如果相机上出现 Approve（确认），就在相机屏幕上点它。第一次配对可能要等 90 秒。"
+          }
+        }
+      }
+    },
+    "Imported looks land here. Auto stays on Built-in or DJI.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Imported looks land here. Auto stays on Built-in or DJI."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "导入的风格会出现在这里。自动仍用内置或 DJI。"
+          }
+        }
+      }
+    },
+    "Input stops before the cube. Pull 1–2 after ETTR.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Input stops before the cube. Pull 1–2 after ETTR."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这是进 LUT 之前的输入档位。按向右曝光后，再拉回 1–2 档。"
+          }
+        }
+      }
+    },
+    "Join the shared Wi-Fi network on this device first.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Join the shared Wi-Fi network on this device first."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请先在这台设备上加入共享 Wi-Fi 网络。"
+          }
+        }
+      }
+    },
+    "LUT unavailable": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LUT unavailable"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "LUT 不可用"
+          }
+        }
+      }
+    },
+    "Leave the camera on. It brings up its own Wi-Fi": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Leave the camera on. It brings up its own Wi-Fi"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "别关相机，它会自己拉起 Wi-Fi"
+          }
+        }
+      }
+    },
+    "Listing camera clips…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Listing camera clips…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在列出相机里的片段…"
+          }
+        }
+      }
+    },
+    "Live": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实时"
+          }
+        }
+      }
+    },
+    "Live View": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live View"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实时画面"
+          }
+        }
+      }
+    },
+    "Live view for this camera is not captured yet.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live view for this camera is not captured yet."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台相机的实时画面还没接入。"
+          }
+        }
+      }
+    },
+    "Live · Video mode": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Live · Video mode"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "实时 · 视频模式"
+          }
+        }
+      }
+    },
+    "Loading clip from camera…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading clip from camera…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在从相机加载片段…"
+          }
+        }
+      }
+    },
+    "Lock monitor controls": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lock monitor controls"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "锁定监视器控制"
+          }
+        }
+      }
+    },
+    "Locked while recording": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Locked while recording"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "录制时已锁定"
+          }
+        }
+      }
+    },
+    "Look for an Approve / pairing prompt": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Look for an Approve / pairing prompt"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "留意相机上的 Approve / 配对提示"
+          }
+        }
+      }
+    },
+    "Looking for your camera…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Looking for your camera…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在找你的相机…"
+          }
+        }
+      }
+    },
+    "Multiview": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Multiview"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Multiview"
+          }
+        }
+      }
+    },
+    "Multiview preview is not available for this camera model yet.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Multiview preview is not available for this camera model yet."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台相机型号暂不支持多机位预览。"
+          }
+        }
+      }
+    },
+    "Needs a D-Log or D-Log2 clip. Rec.709 stays as-shot.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Needs a D-Log or D-Log2 clip. Rec.709 stays as-shot."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "需要一条 D-Log 或 D-Log2 片段。Rec.709 保持原样。"
+          }
+        }
+      }
+    },
+    "Needs approval on the camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Needs approval on the camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "需要在相机上确认"
+          }
+        }
+      }
+    },
+    "No clips on the camera.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No clips on the camera."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机里没有片段。"
+          }
+        }
+      }
+    },
+    "No confirmation · check camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No confirmation · check camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没有确认 · 请检查相机"
+          }
+        }
+      }
+    },
+    "Not connected": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not connected"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "未连接"
+          }
+        }
+      }
+    },
+    "Not sent · check camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Not sent · check camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没发出去 · 请检查相机"
+          }
+        }
+      }
+    },
+    "OK": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "好"
+          }
+        }
+      }
+    },
+    "Official DJI Rec.709 cube": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Official DJI Rec.709 cube"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "官方 DJI Rec.709 cube"
+          }
+        }
+      }
+    },
+    "Official DJI looks for this color / camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Official DJI looks for this color / camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "对应这个色彩 / 机型的官方 DJI 风格"
+          }
+        }
+      }
+    },
+    "On 5.8 GHz that can take about a minute; we keep trying": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On 5.8 GHz that can take about a minute; we keep trying"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "5.8 GHz 的话可能要一分钟左右，我们会一直试"
+          }
+        }
+      }
+    },
+    "On: switching D-Log ↔ D-Log2 hops ISO to that curve's starred native if you were still on native. Off: keep the ISO you set.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "On: switching D-Log ↔ D-Log2 hops ISO to that curve's starred native if you were still on native. Off: keep the ISO you set."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开：在 D-Log 和 D-Log2 之间切换时，如果你之前用的是原生 ISO，ISO 会跟着跳到这条曲线标星的原生档位。关：保持你设的 ISO 不动。"
+          }
+        }
+      }
+    },
+    "Open": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开"
+          }
+        }
+      }
+    },
+    "Open Settings": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open Settings"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开设置"
+          }
+        }
+      }
+    },
+    "OpenPocketCine is free software under the Apache License 2.0. You may use, modify, and share it under that license.\n\nThis is an unofficial field monitor. It is not affiliated with, endorsed by, or supported by DJI. \"DJI\", \"Osmo\", and \"Osmo Pocket\" are trademarks of SZ DJI Technology Co., Ltd., used only to identify the cameras the app can talk to.\n\nReverse-engineered protocol behavior can be incomplete or wrong. Do not rely on this app as the only way to start or stop a take. Record from the camera body until those commands are proven.\n\nThe software is provided on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND. See LICENSE in the repository.\n\nBy using the app you agree to follow the Code of Conduct when participating in the project.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine is free software under the Apache License 2.0. You may use, modify, and share it under that license.\n\nThis is an unofficial field monitor. It is not affiliated with, endorsed by, or supported by DJI. \"DJI\", \"Osmo\", and \"Osmo Pocket\" are trademarks of SZ DJI Technology Co., Ltd., used only to identify the cameras the app can talk to.\n\nReverse-engineered protocol behavior can be incomplete or wrong. Do not rely on this app as the only way to start or stop a take. Record from the camera body until those commands are proven.\n\nThe software is provided on an \"AS IS\" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND. See LICENSE in the repository.\n\nBy using the app you agree to follow the Code of Conduct when participating in the project."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 是 Apache License 2.0 下的免费软件，你可以在该许可证下使用、修改和分享。\n\n这是一款非官方的现场监视器，与 DJI 没有关联，也未获得 DJI 的背书或支持。“DJI”、“Osmo”和“Osmo Pocket”是 SZ DJI Technology Co., Ltd. 的商标，仅用于指明本应用可以连接的相机。\n\n逆向工程得到的协议行为可能不完整或有误。不要只靠本应用来开始或结束一次拍摄，在确认命令可靠之前，请直接在相机机身上操作录制。\n\n本软件按“现状”提供，不附带任何明示或暗示的保证或条件。详见仓库中的 LICENSE。\n\n使用本应用即表示你同意在参与项目时遵守行为准则。"
+          }
+        }
+      }
+    },
+    "OpenPocketCine needs Bluetooth access to find the camera. Open Settings, turn on Bluetooth for OpenPocketCine, then try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine needs Bluetooth access to find the camera. Open Settings, turn on Bluetooth for OpenPocketCine, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 需要蓝牙权限才能找到相机。请打开设置，为 OpenPocketCine 开启蓝牙，然后重试。"
+          }
+        }
+      }
+    },
+    "OpenPocketCine needs Local Network access to reach the camera. Open Settings, turn on Local Network for OpenPocketCine, then try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine needs Local Network access to reach the camera. Open Settings, turn on Local Network for OpenPocketCine, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 需要本地网络权限才能连上相机。请打开设置，为 OpenPocketCine 开启本地网络，然后重试。"
+          }
+        }
+      }
+    },
+    "OpenPocketCine talks to your Osmo Pocket over Bluetooth and the camera's own Wi-Fi. The app has no account. Automatic error reports are optional and off by default.\n\nOpenCapture is the data controller. Privacy or deletion requests: support@openpocketcine.app.\n\n%@\n\nReporting a problem yourself\nReport a problem sends your description and any optional reply email to OpenCapture through Sentry when you tap Send report. Technical details are included only if you choose them and can be reviewed first. You can choose up to three photos or screenshots and review or remove them before sending. Selected images are resized and re-encoded without original filenames or location metadata. Only share images you have permission to send; no images are attached automatically. This one-off submission does not enable automatic reports. Unsent reports stay privately on this phone, expire after 7 days (removed when the app next runs), wait until you leave camera Wi-Fi, and can be removed before delivery. Do not include passwords or other sensitive information in your message. You can decline the first-launch prompt and enable automatic reports later in System.\n\nWhat stays on this phone\n• Saved camera names and last SSID. The camera Wi-Fi password is stored in the iOS Keychain on this phone only.\n• Operator preferences such as Keep Screen Awake and the last LUT look.\n• Imported .cube files you choose to open.\n\nWhat never leaves the phone\n• Live HEVC, DUML telemetry, and pairing traffic stay on the local link. We do not operate a cloud.\n\nThird parties\n• Apple (or Google) may process permission prompts and OS diagnostics under their own policies. TestFlight or Play betas may send crash reports to the developer under Apple or Google terms.\n• Frame.io is optional. If this build is configured and you sign in, clips you pick upload device → Adobe. The token stays in the on-device Keychain.\n• Saving a clip or using the share sheet is something you start. Apple or the app you pick then handles that file.\n• AF-C face boxes are computed on this phone from the live preview. Face geometry is not uploaded.\n• The source is at github.com/erik-sutton95/OpenPocketCine.\n\nThe full privacy policy is https://openpocketcine.app/privacy/": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine talks to your Osmo Pocket over Bluetooth and the camera's own Wi-Fi. The app has no account. Automatic error reports are optional and off by default.\n\nOpenCapture is the data controller. Privacy or deletion requests: support@openpocketcine.app.\n\n%@\n\nReporting a problem yourself\nReport a problem sends your description and any optional reply email to OpenCapture through Sentry when you tap Send report. Technical details are included only if you choose them and can be reviewed first. You can choose up to three photos or screenshots and review or remove them before sending. Selected images are resized and re-encoded without original filenames or location metadata. Only share images you have permission to send; no images are attached automatically. This one-off submission does not enable automatic reports. Unsent reports stay privately on this phone, expire after 7 days (removed when the app next runs), wait until you leave camera Wi-Fi, and can be removed before delivery. Do not include passwords or other sensitive information in your message. You can decline the first-launch prompt and enable automatic reports later in System.\n\nWhat stays on this phone\n• Saved camera names and last SSID. The camera Wi-Fi password is stored in the iOS Keychain on this phone only.\n• Operator preferences such as Keep Screen Awake and the last LUT look.\n• Imported .cube files you choose to open.\n\nWhat never leaves the phone\n• Live HEVC, DUML telemetry, and pairing traffic stay on the local link. We do not operate a cloud.\n\nThird parties\n• Apple (or Google) may process permission prompts and OS diagnostics under their own policies. TestFlight or Play betas may send crash reports to the developer under Apple or Google terms.\n• Frame.io is optional. If this build is configured and you sign in, clips you pick upload device → Adobe. The token stays in the on-device Keychain.\n• Saving a clip or using the share sheet is something you start. Apple or the app you pick then handles that file.\n• AF-C face boxes are computed on this phone from the live preview. Face geometry is not uploaded.\n• The source is at github.com/erik-sutton95/OpenPocketCine.\n\nThe full privacy policy is https://openpocketcine.app/privacy/"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 通过蓝牙和相机自带的 Wi-Fi 与你的 Osmo Pocket 通信。本应用没有账号。自动错误报告是可选的，默认关闭。\n\nOpenCapture 是数据控制方。隐私或删除请求请联系：support@openpocketcine.app。\n\n%@\n\n自己报告问题\n点按“发送报告”后，你的描述和可选的回复邮箱会经由 Sentry 发给 OpenCapture。只有你主动选择时才会附带技术详情，且发送前可以先检查。最多可选三张照片或截图，发送前可以检查或删除。选中的图片会经过缩放和重新编码，不带原始文件名和位置信息。只分享你有权发送的图片；不会自动附加任何图片。这次单次提交不会开启自动报告。未发送的报告只保存在本机，7 天后过期（应用下次运行时删除），会等到你离开相机 Wi-Fi 后再发送，发送前也可以删除。消息里不要写密码或其他敏感信息。你可以在首次启动提示时拒绝，之后在“系统”里再开启自动报告。\n\n留在本机的数据\n• 已保存的相机名称和上次的 SSID。相机 Wi-Fi 密码只存在本机的 iOS 钥匙串里。\n• 操作偏好，例如“保持屏幕常亮”和上次的 LUT 风格。\n• 你主动打开导入的 .cube 文件。\n\n绝不离开本机的数据\n• 实时 HEVC、DUML 遥测和配对流量只走本地链路。我们不运营云服务。\n\n第三方\n• Apple（或 Google）可能按各自政策处理权限提示和系统诊断。TestFlight 或 Play 测试版可能按 Apple 或 Google 的条款向开发者发送崩溃报告。\n• Frame.io 是可选的。如果本版本已配置且你登录了，你选中的片段会从设备直接上传到 Adobe。令牌保存在本机钥匙串里。\n• 保存片段或使用分享菜单是你主动发起的，之后由 Apple 或你选的应用处理该文件。\n• AF-C 人脸框是在本机根据实时预览算出来的，人脸几何信息不会上传。\n• 源码见 github.com/erik-sutton95/OpenPocketCine。\n\n完整隐私政策见 https://openpocketcine.app/privacy/"
+          }
+        }
+      }
+    },
+    "Pair from the home list. Settings does not start a new pair; that stays on Your cameras.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pair from the home list. Settings does not start a new pair; that stays on Your cameras."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请从首页列表配对。设置页不发起新配对，新配对在“你的相机”里做。"
+          }
+        }
+      }
+    },
+    "Playback is open on the camera. Close to return to live view.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Playback is open on the camera. Close to return to live view."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机上正开着回放，关掉它回到实时画面。"
+          }
+        }
+      }
+    },
+    "Pocket uses Bluetooth to pair, then the camera's own Wi-Fi for HEVC. USB-C, hotspot, and HDMI capture are not in this build.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pocket uses Bluetooth to pair, then the camera's own Wi-Fi for HEVC. USB-C, hotspot, and HDMI capture are not in this build."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pocket 先用蓝牙配对，再走相机自己的 Wi-Fi 传 HEVC。这个版本不支持 USB-C、热点和 HDMI 采集。"
+          }
+        }
+      }
+    },
+    "Prevents accidental camera and View Assist changes": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Prevents accidental camera and View Assist changes"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "防止误触相机和画面辅助设置"
+          }
+        }
+      }
+    },
+    "Ready": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ready"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "就绪"
+          }
+        }
+      }
+    },
+    "Ready for your first camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ready for your first camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "就等你的第一台相机了"
+          }
+        }
+      }
+    },
+    "Reconnect": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconnect"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "重新连接"
+          }
+        }
+      }
+    },
+    "Reconnect this camera before changing settings.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconnect this camera before changing settings."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请先重新连接这台相机，再改设置。"
+          }
+        }
+      }
+    },
+    "Reconnecting": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconnecting"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在重连"
+          }
+        }
+      }
+    },
+    "Reconnecting…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reconnecting…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在重新连接…"
+          }
+        }
+      }
+    },
+    "Recording": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recording"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在录制"
+          }
+        }
+      }
+    },
+    "Recording command rejected · check camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recording command rejected · check camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "录制命令被拒绝 · 请检查相机"
+          }
+        }
+      }
+    },
+    "Recording on %@ cameras": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recording on %@ cameras"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ 台相机正在录制"
+          }
+        }
+      }
+    },
+    "Recording stopped": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Recording stopped"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "录制已停止"
+          }
+        }
+      }
+    },
+    "Rejoining camera Wi-Fi…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Rejoining camera Wi-Fi…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在重新加入相机 Wi-Fi…"
+          }
+        }
+      }
+    },
+    "Reliability verification": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reliability verification"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "可靠性验证"
+          }
+        }
+      }
+    },
+    "Remove camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除相机"
+          }
+        }
+      }
+    },
+    "Remove this camera to enable group recording for your other cameras.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove this camera to enable group recording for your other cameras."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "移除这台相机，才能为其他相机开启群录。"
+          }
+        }
+      }
+    },
+    "Report a problem": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Report a problem"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "报告问题"
+          }
+        }
+      }
+    },
+    "Restoring picture…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restoring picture…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在恢复画面…"
+          }
+        }
+      }
+    },
+    "Restoring the camera connection…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Restoring the camera connection…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在恢复相机连接…"
+          }
+        }
+      }
+    },
+    "Return to Multiview": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Return to Multiview"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "返回 Multiview"
+          }
+        }
+      }
+    },
+    "Returning cameras to their Wi-Fi…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Returning cameras to their Wi-Fi…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在把相机送回各自的 Wi-Fi…"
+          }
+        }
+      }
+    },
+    "SHUTTER": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SHUTTER"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "快门"
+          }
+        }
+      }
+    },
+    "SSID joined for this session. The password stays in the iOS Keychain on this phone.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "SSID joined for this session. The password stays in the iOS Keychain on this phone."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "本次会话加入的 SSID。密码只存在本机的 iOS 钥匙串里。"
+          }
+        }
+      }
+    },
+    "Shared Wi-Fi": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shared Wi-Fi"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "共享 Wi-Fi"
+          }
+        }
+      }
+    },
+    "Shared network unavailable. Rejoin it, then reconnect this camera.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shared network unavailable. Rejoin it, then reconnect this camera."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "共享网络不可用。请重新加入该网络，再重新连接这台相机。"
+          }
+        }
+      }
+    },
+    "Sharing could not start": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sharing could not start"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "共享没能启动"
+          }
+        }
+      }
+    },
+    "Show the camera's exposure meter at the picture's left edge in DISP 1. Auto and Manual use the camera reading without changing exposure settings.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Show the camera's exposure meter at the picture's left edge in DISP 1. Auto and Manual use the camera reading without changing exposure settings."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在 DISP 1 下把相机的曝光表显示在画面左边缘。自动和手动都直接用相机的读数，不会改动曝光设置。"
+          }
+        }
+      }
+    },
+    "Some cameras could not return to their own Wi-Fi. Keep them powered on and close Multiview again to retry.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Some cameras could not return to their own Wi-Fi. Keep them powered on and close Multiview again to retry."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "部分相机无法回到各自的 Wi-Fi。请保持开机，再次关闭多机位后重试。"
+          }
+        }
+      }
+    },
+    "Source Code": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Source Code"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "源码"
+          }
+        }
+      }
+    },
+    "Start": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始"
+          }
+        }
+      }
+    },
+    "Start recording": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start recording"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始录制"
+          }
+        }
+      }
+    },
+    "Start recording?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start recording?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "开始录制？"
+          }
+        }
+      }
+    },
+    "Starting cameras…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Starting cameras…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在启动相机…"
+          }
+        }
+      }
+    },
+    "Still looking": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Still looking"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "还在找"
+          }
+        }
+      }
+    },
+    "Stop": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止"
+          }
+        }
+      }
+    },
+    "Stop recording": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop recording"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止录制"
+          }
+        }
+      }
+    },
+    "Stop recording?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop recording?"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止录制？"
+          }
+        }
+      }
+    },
+    "Stop subject tracking": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stop subject tracking"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "停止主体追踪"
+          }
+        }
+      }
+    },
+    "Stopping cameras…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stopping cameras…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在停止相机…"
+          }
+        }
+      }
+    },
+    "Tap it on the camera screen": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap it on the camera screen"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "在相机屏幕上点它"
+          }
+        }
+      }
+    },
+    "Terms of Use": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of Use"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "使用条款"
+          }
+        }
+      }
+    },
+    "That clip cannot be deleted from here.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "That clip cannot be deleted from here."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这条片段不能在这里删。"
+          }
+        }
+      }
+    },
+    "The Nano did not confirm its Wi-Fi wake. Keep it powered on and try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The Nano did not confirm its Wi-Fi wake. Keep it powered on and try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nano 未确认 Wi-Fi 唤醒。请保持开机，再试一次。"
+          }
+        }
+      }
+    },
+    "The camera": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台相机"
+          }
+        }
+      }
+    },
+    "The camera color mode selects D-Log, D-Log2, D-Log M, Rec.709, or HLG automatically. CineStop paints five stops around 18% gray, read through the camera's log curve: dark green −2, yellow-green −1, gray at 18%, light pink +1 (skin), soft yellow +2 (upper skin limit). Red is clipped and violet is crushed; other shadows are flat dark gray and other highlights flat light gray. Video paints video-level IRE stripes (green 41–48, pink 61–70, red clip) over luminance grayscale. IRE paints six video-level zones over luminance grayscale: purple crush, blue near-black, green 18% gray, pink one stop over, yellow near clip, red clip. On log, Video and IRE read the camera's Rec.709 look (709) or the raw signal (LOG), set under Read. Limits paints only shadow and highlight warnings, leaving other colors untouched. D-Log M uses a direct 0–100 signal scale. Its gray guide and CineStop stops are Pocket 3 estimates, not calibrated sensor limits. Use IRE for signal measurements on other D-Log M cameras.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera color mode selects D-Log, D-Log2, D-Log M, Rec.709, or HLG automatically. CineStop paints five stops around 18% gray, read through the camera's log curve: dark green −2, yellow-green −1, gray at 18%, light pink +1 (skin), soft yellow +2 (upper skin limit). Red is clipped and violet is crushed; other shadows are flat dark gray and other highlights flat light gray. Video paints video-level IRE stripes (green 41–48, pink 61–70, red clip) over luminance grayscale. IRE paints six video-level zones over luminance grayscale: purple crush, blue near-black, green 18% gray, pink one stop over, yellow near clip, red clip. On log, Video and IRE read the camera's Rec.709 look (709) or the raw signal (LOG), set under Read. Limits paints only shadow and highlight warnings, leaving other colors untouched. D-Log M uses a direct 0–100 signal scale. Its gray guide and CineStop stops are Pocket 3 estimates, not calibrated sensor limits. Use IRE for signal measurements on other D-Log M cameras."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机色彩模式会自动选 D-Log、D-Log2、D-Log M、Rec.709 或 HLG。CineStop 以 18% 灰为中心画五个档位，按相机的 Log 曲线读取：深绿 −2、黄绿 −1、灰色为 18%、浅粉 +1（肤色）、淡黄 +2（肤色上限）。红色是过曝削波，紫色是死黑；其余暗部是平的深灰，其余亮部是平的浅灰。Video 在亮度灰阶上画视频电平 IRE 条带（绿 41–48、粉 61–70、红削波）。IRE 在亮度灰阶上画六个视频电平分区：紫死黑、蓝近黑、绿 18% 灰、粉高一档、黄近削波、红削波。在 Log 下，Video 和 IRE 读的是相机的 Rec.709 风格（709）或原始信号（LOG），在 Read（读取）里设置。Limits 只画暗部和亮部警告，其余颜色不动。D-Log M 用 0–100 的直接信号刻度，它的灰阶指引和 CineStop 档位是 Pocket 3 的估算值，不是标定过的传感器极限。在其他 D-Log M 机型上测信号请用 IRE。"
+          }
+        }
+      }
+    },
+    "The camera could not find this iPhone’s hotspot. Turn on Personal Hotspot and Allow Others to Join, then try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera could not find this iPhone’s hotspot. Turn on Personal Hotspot and Allow Others to Join, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机找不到这台 iPhone 的热点。请打开个人热点并允许其他人加入，然后重试。"
+          }
+        }
+      }
+    },
+    "The camera did not answer over its Wi-Fi. Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, pause any VPN or ad blocker, then try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera did not answer over its Wi-Fi. Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, pause any VPN or ad blocker, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机在它的 Wi-Fi 上没有回应。请把相机附近每台手机上的 DJI Frame Tap 都关掉、DJI Mimo 都彻底退出，再暂停 VPN 或广告拦截工具，然后重试。"
+          }
+        }
+      }
+    },
+    "The camera did not confirm recording. Check its screen before trying again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera did not confirm recording. Check its screen before trying again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机未确认录制。重试前请先看一眼相机屏幕。"
+          }
+        }
+      }
+    },
+    "The camera didn't respond in time. Check Bluetooth, turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, then try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera didn't respond in time. Check Bluetooth, turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机没有及时回应。请检查蓝牙，把相机附近每台手机上的 DJI Frame Tap 都关掉、DJI Mimo 都彻底退出，然后重试。"
+          }
+        }
+      }
+    },
+    "The camera ended the connection. Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, then try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera ended the connection. Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机结束了连接。请把相机附近每台手机上的 DJI Frame Tap 都关掉、DJI Mimo 都彻底退出，然后重试。"
+          }
+        }
+      }
+    },
+    "The camera is not ready to pair again yet. Force quit DJI Mimo on every phone near the camera, wait a few seconds, then try again.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera is not ready to pair again yet. Force quit DJI Mimo on every phone near the camera, wait a few seconds, then try again."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机还没准备好重新配对。请把相机附近每台手机上的 DJI Mimo 都彻底退出，等几秒再试。"
+          }
+        }
+      }
+    },
+    "This camera is not a Bluetooth camera this phone knows.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This camera is not a Bluetooth camera this phone knows."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台相机不是这台手机认识的蓝牙相机。"
+          }
+        }
+      }
+    },
+    "This clip is not cached on the phone.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This clip is not cached on the phone."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这条片段没有缓存在手机上。"
+          }
+        }
+      }
+    },
+    "This network connection did not identify the selected camera.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This network connection did not identify the selected camera."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这次网络连接没能识别选中的相机。"
+          }
+        }
+      }
+    },
+    "Try experimental shared Wi-Fi": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try experimental shared Wi-Fi"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "试用实验性共享 Wi-Fi"
+          }
+        }
+      }
+    },
+    "Try experimental shared Wi-Fi · Preview unavailable": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try experimental shared Wi-Fi · Preview unavailable"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "试试实验性共享 Wi-Fi · 无预览"
+          }
+        }
+      }
+    },
+    "Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera. Make sure the camera is on and activated, then move closer.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera. Make sure the camera is on and activated, then move closer."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请把相机附近每台手机上的 DJI Frame Tap 都关掉、DJI Mimo 都彻底退出。确认相机已开机并激活，然后走近一点。"
+          }
+        }
+      }
+    },
+    "Turn off Personal Hotspot, then try again. While it is on, this iPhone cannot join the camera Wi-Fi.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn off Personal Hotspot, then try again. While it is on, this iPhone cannot join the camera Wi-Fi."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "请先关掉个人热点再试。热点开着的时候，这台 iPhone 连不上相机 Wi-Fi。"
+          }
+        }
+      }
+    },
+    "Turn on Personal Hotspot": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn on Personal Hotspot"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "打开个人热点"
+          }
+        }
+      }
+    },
+    "Turn the camera on and keep the phone nearby. Pocket and Nano both appear. Choose the one you want.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Turn the camera on and keep the phone nearby. Pocket and Nano both appear. Choose the one you want."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "把相机开机，手机放在旁边。Pocket 和 Nano 都会出现，选你要的那台。"
+          }
+        }
+      }
+    },
+    "Unavailable": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unavailable"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不可用"
+          }
+        }
+      }
+    },
+    "Unlock monitor controls": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlock monitor controls"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "解锁监视器控制"
+          }
+        }
+      }
+    },
+    "Vocal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Vocal"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "人声"
+          }
+        }
+      }
+    },
+    "WB": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WB"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WB"
+          }
+        }
+      }
+    },
+    "Waiting for a new live picture…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting for a new live picture…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在等新的实时画面…"
+          }
+        }
+      }
+    },
+    "Waiting for camera color": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting for camera color"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "等待相机色彩…"
+          }
+        }
+      }
+    },
+    "Waiting for camera confirmation": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting for camera confirmation"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在等待相机确认"
+          }
+        }
+      }
+    },
+    "Waiting for camera controls…": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting for camera controls…"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在等待相机控制…"
+          }
+        }
+      }
+    },
+    "Waiting for video": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waiting for video"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在等待视频"
+          }
+        }
+      }
+    },
+    "Waking camera Wi-Fi": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Waking camera Wi-Fi"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "正在唤醒相机 Wi-Fi"
+          }
+        }
+      }
+    },
+    "We read the camera's network over Bluetooth, then join its Wi-Fi for you.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "We read the camera's network over Bluetooth, then join its Wi-Fi for you."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "我们先通过蓝牙读到相机的网络，再替你连上它的 Wi-Fi。"
+          }
+        }
+      }
+    },
+    "Where the BLE → Wi-Fi → datalink handshake is right now.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Where the BLE → Wi-Fi → datalink handshake is right now."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "目前 BLE → Wi-Fi → 数据链路握手进行到了哪一步。"
+          }
+        }
+      }
+    },
+    "Wi-Fi join verified · Preview not supported yet": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wi-Fi join verified · Preview not supported yet"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wi-Fi 已加入并验证 · 暂不支持预览"
+          }
+        }
+      }
+    },
+    "Wind": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wind"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "风噪"
+          }
+        }
+      }
+    },
+    "Zoom %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "变焦 %@"
+          }
+        }
+      }
+    },
+    "Zoom %@: no command": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom %@: no command"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "变焦 %@：没有对应命令"
+          }
+        }
+      }
+    },
+    "Zoom 1× · D-Log2": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom 1× · D-Log2"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "变焦 1× · D-Log2"
+          }
+        }
+      }
+    },
+    "Zoom locked": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom locked"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "变焦已锁定"
+          }
+        }
+      }
+    },
+    "camera still in a Mimo session — quit Mimo, power-cycle the camera, then tap once": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "camera still in a Mimo session — quit Mimo, power-cycle the camera, then tap once"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机还处在 Mimo 会话里——请退出 Mimo，给相机断电重启，再点一次"
+          }
+        }
+      }
+    },
+    "couldn't read the camera's Wi-Fi credentials": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "couldn't read the camera's Wi-Fi credentials"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "没能读到相机的 Wi-Fi 账号密码"
+          }
+        }
+      }
+    },
+    "iPhone is still on the other camera's Wi-Fi (Pocket and Nano both use 192.168.2.1). Forget that network in Settings → Wi-Fi, then tap Connect. The other camera can stay on.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "iPhone is still on the other camera's Wi-Fi (Pocket and Nano both use 192.168.2.1). Forget that network in Settings → Wi-Fi, then tap Connect. The other camera can stay on."
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台 iPhone 还连在另一台相机的 Wi-Fi 上（Pocket 和 Nano 都用 192.168.2.1）。请在设置 → Wi-Fi 里忽略那个网络，再点连接。另一台相机可以保持开机。"
+          }
+        }
+      }
+    },
+    "not live": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "not live"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "不在实时状态"
+          }
+        }
+      }
+    },
+    "pairing timed out — tap Approve on the camera if it asked": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pairing timed out — tap Approve on the camera if it asked"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "配对超时了——如果相机有提示，请在相机上点 Approve（确认）"
+          }
+        }
+      }
+    },
+    "the Nano did not confirm its Wi-Fi wake. Keep it powered on and try again": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the Nano did not confirm its Wi-Fi wake. Keep it powered on and try again"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Nano 没有确认它的 Wi-Fi 唤醒。请保持开机，再试一次"
+          }
+        }
+      }
+    },
+    "the camera disconnected": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the camera disconnected"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机断开了"
+          }
+        }
+      }
+    },
+    "the camera disconnected while reading %@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the camera disconnected while reading %@"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "读取 %@ 时相机断开了"
+          }
+        }
+      }
+    },
+    "the camera joined the Wi-Fi, but this iPhone cannot reach it there. The router is keeping the two apart: on a Wi-Fi 7 router turn off MLO for this network (or add a camera network without it), and turn off client isolation. The Hotspot setup avoids the router": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the camera joined the Wi-Fi, but this iPhone cannot reach it there. The router is keeping the two apart: on a Wi-Fi 7 router turn off MLO for this network (or add a camera network without it), and turn off client isolation. The Hotspot setup avoids the router"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机已经加入了 Wi-Fi，但这台 iPhone 在这个网络里够不着它，是路由器把两者隔开了：在 Wi-Fi 7 路由器上给这个网络关掉 MLO（或者另外加一个不带 MLO 的相机网络），并关掉客户端隔离。用热点设置可以绕开路由器"
+          }
+        }
+      }
+    },
+    "the camera stopped responding": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "the camera stopped responding"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "相机没有回应了"
+          }
+        }
+      }
+    },
+    "this iPhone could not join the Wi-Fi. Check the password and that the network is in range": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "this iPhone could not join the Wi-Fi. Check the password and that the network is in range"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这台 iPhone 没能加入 Wi-Fi。请检查密码，并确认网络在信号范围内"
+          }
+        }
+      }
+    },
+    "this setup's password is missing on this device. Edit the setup and enter it again": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "this setup's password is missing on this device. Edit the setup and enter it again"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "这套设置的密码在这台设备上丢了。请编辑这套设置，重新输一次密码"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

@@ -20,7 +20,7 @@ struct LiveTrackingCancelButton: View {
                 .background(LiveDesign.good, in: Circle())
         }
         .buttonStyle(.monitorTapTarget)
-        .accessibilityLabel("Stop subject tracking")
+        .accessibilityLabel(String(localized: "Stop subject tracking"))
         .accessibilityIdentifier("monitor.system.trackCancel")
     }
 }

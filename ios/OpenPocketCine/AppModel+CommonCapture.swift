@@ -18,6 +18,6 @@ extension AppModel {
     /// Continuous pinch/dial completion retains the DJI color restoration adapter.
     @discardableResult func commitZoomCycle(_ ratio: Double) -> Bool {
         guard let editor = control.edit(.zoom) else { return false }
-        return control.commit(.zoom(ratio), from: editor, label: "Zoom \(ratio)")
+        return control.commit(.zoom(ratio), from: editor, label: String(localized: "Zoom \(ratio)"))
     }
 }

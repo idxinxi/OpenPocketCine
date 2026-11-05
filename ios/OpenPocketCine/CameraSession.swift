@@ -1261,11 +1261,11 @@ final class CameraSession {
                     ControlLiveLog.line(
                         "zoom: setZoom \(from) → \(to) locked=\(self.isLocked) live=\(self.datalink != nil)")
                 case .unavailableChip(let to):
-                    self.controlNote = "Zoom \(to): no command"
+                    self.controlNote = String(localized: "Zoom \(to): no command")
                     guard self.zoomGesture.admits(authority) else { return }
                     ControlLiveLog.line("zoom: tap ignored, no write for \(to)")
                 case .chipPreparing(let to):
-                    self.controlNote = "Zoom \(to)"
+                    self.controlNote = String(localized: "Zoom \(to)")
                 case .sliderRequested(let factor, let position):
                     ControlLiveLog.line(
                         "zoom: setZoomSlider \(CamFov.displayLabel(factor: factor)) lens=\(position) locked=\(self.isLocked) live=\(self.datalink != nil)")
@@ -1281,7 +1281,7 @@ final class CameraSession {
                     ControlLiveLog.line(
                         "zoom: SET \(Duml.hex(frame.payload)) ack=\(ok ? "ok" : (self.controlNote ?? "failed"))")
                 case .locked:
-                    self.controlNote = "Zoom locked"
+                    self.controlNote = String(localized: "Zoom locked")
                 case .recordingBlocked:
                     self.controlNote = ControlHud.recordingColorLockNote
                     guard self.zoomGesture.admits(authority) else { return }
@@ -1336,7 +1336,7 @@ final class CameraSession {
                 case .hopPreparing:
                     self.editorReconciliation.clearColor()
                     guard self.zoomColor.admits(authority) else { return }
-                    self.controlNote = "D-Log: D-Log2 cannot zoom"
+                    self.controlNote = String(localized: "D-Log: D-Log2 cannot zoom")
                     guard self.zoomColor.admits(authority) else { return }
                     ControlLiveLog.line("zoom: hold 0xB8 until D-Log2 → D-Log")
                 case .nativeISO(let from, let to):
@@ -1358,7 +1358,7 @@ final class CameraSession {
                 case .restoreSettled(let success):
                     ControlLiveLog.line(
                         "zoom: restore D-Log2 on 1× ack=\(success ? "ok" : "failed")")
-                    if success { self.controlNote = "Zoom 1× · D-Log2" }
+                    if success { self.controlNote = String(localized: "Zoom 1× · D-Log2") }
                 case .flushed(let factor):
                     _ = self.zoomGesture.flushed(factor)
                 case .slewCleared:
@@ -1368,7 +1368,7 @@ final class CameraSession {
                     guard self.zoomColor.admits(authority) else { return }
                     ControlLiveLog.line("zoom: blocked \u{2014} color hop while recording")
                 case .locked:
-                    self.controlNote = "Zoom locked"
+                    self.controlNote = String(localized: "Zoom locked")
                 case .zoomPreparing:
                     self.lastZoomSetAt = Date()
                 case .zoomSettled(let frame, let name, let announce, let success):
@@ -1493,7 +1493,7 @@ final class CameraSession {
                     )
                 case .missingDSP(let name, let authority):
                     guard self.cameraSettings.admits(authority) else { return }
-                    self.controlNote = "\(name): no DSP blob"
+                    self.controlNote = String(localized: "\(name): no DSP blob")
                     ControlLiveLog.line("audio: \(name) skipped — no GET blob")
                 case .dspPrepared(let facts, let authority):
                     self.applyAudioDSPFacts(facts, authority: authority)
@@ -1623,7 +1623,7 @@ final class CameraSession {
                         opcode: String(format: "0x%02X/0x%02X", frame.cmdSet, frame.cmdId),
                         expect: request.expectation, late: late)
                 case .refused(let name, let message):
-                    self.controlNote = "\(name): \(message)"
+                    self.controlNote = String(localized: "\(name): \(message)")
                 case .legacySettlementMatched:
                     self.controlNote = nil
                 case .timeoutEvidence(let request, _):
@@ -2096,7 +2096,7 @@ final class CameraSession {
     /// Angle is operator intent, never a value inferred back from delayed telemetry.
     func setShutterAngle(_ degrees: Double) {
         guard admitsMultiviewControl, datalink != nil, datalink?.isRebuilding != true else {
-            controlNote = "not live"
+            controlNote = String(localized: "not live")
             return
         }
         guard !status.isPhoto else { return }
@@ -2114,7 +2114,7 @@ final class CameraSession {
         let previous = status.shutterDenom
         status.shutterDenom = denom
         setShutterDenom(denom)
-        if controlNote == "not live" { status.shutterDenom = previous }
+        if controlNote == String(localized: "not live") { status.shutterDenom = previous }
     }
 
     private func rematchShutterAngle(_ degrees: Double?) {
@@ -2618,10 +2618,10 @@ final class CameraSession {
 
     func noteFrameTooSmall() {
         subjectTracking.rejectSmallBox()
-        controlNote = "Frame Too Small"
+        controlNote = String(localized: "Frame Too Small")
         Task { @MainActor [weak self] in
             try? await Task.sleep(for: .seconds(ControlHud.toastHoldSeconds))
-            guard let self, self.controlNote == "Frame Too Small" else { return }
+            guard let self, self.controlNote == String(localized: "Frame Too Small") else { return }
             self.controlNote = nil
         }
     }
@@ -2862,7 +2862,7 @@ final class CameraSession {
         onSettle: (@MainActor (Bool) -> Void)? = nil
     ) {
         guard !Task.isCancelled, admission?.admits(commandOwner) ?? true, controlLinkReady else {
-            controlNote = "not live"
+            controlNote = String(localized: "not live")
             onStage?(.notSent)
             onFail?()
             onSettle?(false)
@@ -2899,7 +2899,7 @@ final class CameraSession {
             DjiAppleCameraSettings.requestControlGeneration.map({ $0 == generation }) ?? true
         else { return false }
         guard admitsMultiviewControl, datalink != nil, datalink?.isRebuilding != true else {
-            controlNote = "not live"
+            controlNote = String(localized: "not live")
             return false
         }
         if isBrowsingMedia, frame.cmdSet == 0x02, frame.cmdId == 0x8E {
@@ -2969,7 +2969,7 @@ final class CameraSession {
         // The valid captured wire receipt and permission to publish this editor
         // projection are separate. A successor request can retire the projection.
         if editorReconciliation.admits(editor.authority) {
-            if editor.formatExpired { controlNote = "Frame rate unconfirmed; choose the shutter angle again" }
+            if editor.formatExpired { controlNote = String(localized: "Frame rate unconfirmed; choose the shutter angle again") }
             if editorReconciliation.admits(editor.authority) { status = editor.status }
             if editorReconciliation.admits(editor.authority) { rematchShutterAngle(editor.rematchAngle) }
         }
@@ -4181,7 +4181,7 @@ final class CameraSession {
             switch outcome {
             case .blocked(.uncaptured):
                 log.info("live: skip 0x09/0xa8 \u{2014} \(self.connectedCamera?.model.name ?? "camera", privacy: .public) has no captured enable (\(reason, privacy: .public))")
-                if controlNote == nil { controlNote = "Live view for this camera is not captured yet." }
+                if controlNote == nil { controlNote = String(localized: "Live view for this camera is not captured yet.") }
                 guard scope.isCurrent else { return }
             case .blocked(.overlap):
                 log.info("live: skip overlapping 0x09/0xa8 (\(reason, privacy: .public))")
@@ -4633,7 +4633,7 @@ final class CameraSession {
         let editor = editorReconciliation.project(incoming: s, reported: reported,
             committed: status, origin: .subscription)
         guard editorReconciliation.admits(editor.authority) else { return }
-        if editor.formatExpired { controlNote = "Frame rate unconfirmed; choose the shutter angle again" }
+        if editor.formatExpired { controlNote = String(localized: "Frame rate unconfirmed; choose the shutter angle again") }
         guard editorReconciliation.admits(editor.authority) else { return }
         s = editor.status
         let angle = editor.rematchAngle
@@ -4921,31 +4921,31 @@ final class CameraSession {
         case nanoWake
         var errorDescription: String? {
             switch self {
-            case .creds: "couldn't read the camera's Wi-Fi credentials"
-            case .timeout: "the camera stopped responding"
-            case .pairingTimeout: "pairing timed out — tap Approve on the camera if it asked"
+            case .creds: String(localized: "couldn't read the camera's Wi-Fi credentials")
+            case .timeout: String(localized: "the camera stopped responding")
+            case .pairingTimeout: String(localized: "pairing timed out — tap Approve on the camera if it asked")
             case .pairingDeferred: StartupConnectionCopy.pairingDeferred
-            case .disconnected: "the camera disconnected"
+            case .disconnected: String(localized: "the camera disconnected")
             case .commandTimeout(let name):
-                "\(name) timed out — camera didn't reply (AP still coming up?)"
-            case .credsEmpty(let name): "\(name) came back empty — camera AP not up yet"
-            case .disconnectedDuring(let name): "the camera disconnected while reading \(name)"
+                String(localized: "\(name) timed out — camera didn't reply (AP still coming up?)")
+            case .credsEmpty(let name): String(localized: "\(name) came back empty — camera AP not up yet")
+            case .disconnectedDuring(let name): String(localized: "the camera disconnected while reading \(name)")
             case .credsRefused(let name, let status):
-                "\(name) refused (0x\(String(status, radix: 16))) — quit Mimo, power-cycle the camera, then tap once"
+                String(localized: "\(name) refused (0x\(String(status, radix: 16))) — quit Mimo, power-cycle the camera, then tap once")
             case .mimoSession:
-                "camera still in a Mimo session — quit Mimo, power-cycle the camera, then tap once"
+                String(localized: "camera still in a Mimo session — quit Mimo, power-cycle the camera, then tap once")
             case .staleSoftAP:
-                "iPhone is still on the other camera's Wi-Fi (Pocket and Nano both use 192.168.2.1). Forget that network in Settings → Wi-Fi, then tap Connect. The other camera can stay on."
+                String(localized: "iPhone is still on the other camera's Wi-Fi (Pocket and Nano both use 192.168.2.1). Forget that network in Settings → Wi-Fi, then tap Connect. The other camera can stay on.")
             case .wrongCamera:
-                "Bluetooth reached a different camera than the one you tapped. Pocket and Nano are separate — pick the Nano or Pocket row in the list."
+                String(localized: "Bluetooth reached a different camera than the one you tapped. Pocket and Nano are separate — pick the Nano or Pocket row in the list.")
             case .setupNotSaved:
-                "this setup's password is missing on this device. Edit the setup and enter it again"
+                String(localized: "this setup's password is missing on this device. Edit the setup and enter it again")
             case .hostWiFi:
-                "this iPhone could not join the Wi-Fi. Check the password and that the network is in range"
+                String(localized: "this iPhone could not join the Wi-Fi. Check the password and that the network is in range")
             case .stationCameraMissing:
-                "the camera joined the Wi-Fi, but this iPhone cannot reach it there. The router is keeping the two apart: on a Wi-Fi 7 router turn off MLO for this network (or add a camera network without it), and turn off client isolation. The Hotspot setup avoids the router"
+                String(localized: "the camera joined the Wi-Fi, but this iPhone cannot reach it there. The router is keeping the two apart: on a Wi-Fi 7 router turn off MLO for this network (or add a camera network without it), and turn off client isolation. The Hotspot setup avoids the router")
             case .nanoWake:
-                "the Nano did not confirm its Wi-Fi wake. Keep it powered on and try again"
+                String(localized: "the Nano did not confirm its Wi-Fi wake. Keep it powered on and try again")
             }
         }
     }

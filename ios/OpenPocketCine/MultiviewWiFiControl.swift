@@ -13,9 +13,9 @@ final class MultiviewWiFiControl {
         case unavailable, timeout
         var errorDescription: String? {
             switch self {
-            case .unavailable: "Could not open camera control on the shared Wi-Fi."
+            case .unavailable: String(localized: "Could not open camera control on the shared Wi-Fi.")
             case .timeout:
-                "The camera did not confirm recording. Check its screen before trying again."
+                String(localized: "The camera did not confirm recording. Check its screen before trying again.")
             }
         }
     }

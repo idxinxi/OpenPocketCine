@@ -13,9 +13,9 @@ import OpenCineFrameIOApple
 /// Operator-facing Settings help. Never name a sister app or another camera brand.
 enum SettingsHelpCopy {
     static let currentTransport =
-        "Pocket uses Bluetooth to pair, then the camera's own Wi-Fi for HEVC. USB-C, hotspot, and HDMI capture are not in this build."
+        String(localized: "Pocket uses Bluetooth to pair, then the camera's own Wi-Fi for HEVC. USB-C, hotspot, and HDMI capture are not in this build.")
     static let themeHelp =
-        "Charcoal field-monitor chrome with Sky Blue accents, tuned for low reflection on set."
+        String(localized: "Charcoal field-monitor chrome with Sky Blue accents, tuned for low reflection on set.")
 }
 
 
@@ -47,14 +47,14 @@ struct SettingsRootView: View {
             }, feedback: feedback, link: link, sharing: sharing,
             assist: .init(state: model.assist, stores: .app, falseColorLooks: .app, palette: LiveDesign.self,
                 haptics: .app, transfer: transfer, clipByte: model.monitorSamples.exposureCeiling.clipByte(transfer: transfer),
-                exposureHelp: "Show the camera's exposure meter at the picture's left edge in DISP 1. Auto and Manual use the camera reading without changing exposure settings.",
+                exposureHelp: String(localized: "Show the camera's exposure meter at the picture's left edge in DISP 1. Auto and Manual use the camera reading without changing exposure settings."),
                 lookLabel: model.assist.lutStatusLabel, lookCatalog: { AnyView(LUTPicker(assist: model.assist)) }),
             controls: .init(recordConfirmation: Bindable(model).recordConfirmationEnabled,
                 haptics: .init(value: Bindable(model).hapticsEnabled, help: MonitorSettingsCopy.gimbalHaptics),
                 keepAwake: .init(value: Bindable(model).keepScreenAwake, help: MonitorSettingsCopy.keepScreenAwake),
                 input: .init(remoteShutter: .volumeButtons(enabled: Bindable(model).remoteShutterEnabled)),
                 motion: motion),
-            display: .init(hdr: .init(value: Bindable(model).hdrDisplay, help: MonitorSettingsCopy.hdrPanel(cameraMode: "HDR/HLG color mode")),
+            display: .init(hdr: .init(value: Bindable(model).hdrDisplay, help: MonitorSettingsCopy.hdrPanel(cameraMode: String(localized: "HDR/HLG color mode"))),
                 sections: availableDisplay),
             cache: .init(source: cache,
                 cacheOriginals: .init(value: Bindable(model).cacheFullResolution, help: MonitorSettingsCopy.cacheFullResolution),
@@ -65,29 +65,29 @@ struct SettingsRootView: View {
                 consentMessage: MonitorSettingsCopy.accountConsentMessage(service: "Frame.io"),
                 consentAction: MonitorSettingsCopy.accountConsentAction),
             support: support,
-            information: .init(theme: "DJI Black", protocolName: "DUML / BLE + Wi-Fi", version: Self.appVersionText,
-                themeHelp: SettingsHelpCopy.themeHelp, protocolHelp: "Camera control speaks DUML over Bluetooth and the camera's Wi-Fi. No DJI SDK is bundled or required.",
+            information: .init(theme: String(localized: "DJI Black"), protocolName: String(localized: "DUML / BLE + Wi-Fi"), version: Self.appVersionText,
+                themeHelp: SettingsHelpCopy.themeHelp, protocolHelp: String(localized: "Camera control speaks DUML over Bluetooth and the camera's Wi-Fi. No DJI SDK is bundled or required."),
                 versionHelp: MonitorSettingsCopy.versionHelp(app: "OpenPocketCine")))
     }
 
     private func feedback() { OperatorSettingsHaptics.selection(enabled: model.hapticsEnabled) }
 
     private var link: MonitorSettingsLinkSource {
-        .init(transport: model.isLive ? "BLE + Wi-Fi active" : "Not connected",
+        .init(transport: model.isLive ? String(localized: "BLE + Wi-Fi active") : String(localized: "Not connected"),
             transportHelp: SettingsHelpCopy.currentTransport, phase: model.session.phase.label,
-            phaseHelp: "Where the BLE → Wi-Fi → datalink handshake is right now.", network: model.session.joinedSSID.flatMap { $0.isEmpty ? nil : $0 },
-            networkHelp: "SSID joined for this session. The password stays in the iOS Keychain on this phone.",
+            phaseHelp: String(localized: "Where the BLE → Wi-Fi → datalink handshake is right now."), network: model.session.joinedSSID.flatMap { $0.isEmpty ? nil : $0 },
+            networkHelp: String(localized: "SSID joined for this session. The password stays in the iOS Keychain on this phone."),
             signalBars: model.session.liveSignalBars, saved: model.savedCameras.map { camera in
                 let network = camera.lastSSID
                 return .init(id: camera.id, name: camera.displayName,
                     detail: camera.modelName + (network.map { " · \($0)" } ?? ""), network: network)
-            }, savedHelp: "Pair from the home list. Settings does not start a new pair; that stays on Your cameras.",
+            }, savedHelp: String(localized: "Pair from the home list. Settings does not start a new pair; that stays on Your cameras."),
             processing: .init(upscaler: Binding(get: { FeedUpscaleSwitch.shared.upscaler },
                 set: { FeedUpscaleSwitch.shared.upscaler = $0 })))
     }
 
     private var sharing: MonitorSettingsSharingSource {
-        .init(enabled: !model.session.isMultiviewBorrowed, unavailableHelp: "Connect to one camera from Your cameras to share its feed with watchers.",
+        .init(enabled: !model.session.isMultiviewBorrowed, unavailableHelp: String(localized: "Connect to one camera from Your cameras to share its feed with watchers."),
             sharing: Binding(get: { model.shareThisFeed }, set: model.setShareThisFeed),
             passcode: Bindable(model).sharePasscode, controlRequests: Bindable(model).controlRequestsAllowed,
             priority: Bindable(model).broadcastPriority,
@@ -125,7 +125,7 @@ struct SettingsRootView: View {
                     model.gimbalPadHeld = false
                     model.session.gimbal.endStick()
                 }), help: MonitorSettingsCopy.gimbalJoystick, feedback: feedback),
-            controllerStatus: model.gamepadConnected ? "Connected" : "Not connected", controllerHelp: MonitorSettingsCopy.gamepad)
+            controllerStatus: model.gamepadConnected ? String(localized: "Connected") : String(localized: "Not connected"), controllerHelp: MonitorSettingsCopy.gamepad)
     }
 
     private var availableDisplay: Set<MonitorDisplayChrome.Section> {
@@ -149,9 +149,9 @@ struct SettingsRootView: View {
             unavailableHelp: MonitorSettingsCopy.automaticReportsUnavailable,
             sourceHelp: MonitorSettingsCopy.sourceHelp(app: "OpenPocketCine"), termsHelp: MonitorSettingsCopy.termsHelp(app: "OpenPocketCine"),
             model: model.settingsSupport, actions: model.settingsSupportActions, links: [], privacy: nil,
-            source: browserDestination("settings.source", "Source Code", OpenPocketCineLinks.source),
-            terms: browserDestination("settings.terms", "Terms of Use", OpenPocketCineLinks.terms),
-            reportTitle: "Report a problem", reportActionTitle: "Open", diagnosticsHelp: MonitorSettingsCopy.shareDiagnostics,
+            source: browserDestination("settings.source", String(localized: "Source Code"), OpenPocketCineLinks.source),
+            terms: browserDestination("settings.terms", String(localized: "Terms of Use"), OpenPocketCineLinks.terms),
+            reportTitle: String(localized: "Report a problem"), reportActionTitle: String(localized: "Open"), diagnosticsHelp: MonitorSettingsCopy.shareDiagnostics,
             report: { model.isProblemReportPresented = true },
             shareReport: { AnyView(MonitorActivityShareSheet(items: [$0])) },
             deleteStoredReports: { AppDiagnostics.incidents.deleteStoredIncidents {} },

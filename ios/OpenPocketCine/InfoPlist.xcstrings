@@ -1,0 +1,102 @@
+{
+  "sourceLanguage": "en",
+  "strings": {
+    "NSBluetoothAlwaysUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NSBluetoothAlwaysUsageDescription"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 使用蓝牙来发现并配对你的 DJI Osmo Pocket，并交接 Wi-Fi。"
+          }
+        }
+      }
+    },
+    "NSCameraUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NSCameraUsageDescription"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "如果你在 iPad 上使用外接 USB 采集设备，OpenPocketCine 需要相机权限来接收它的视频。"
+          }
+        }
+      }
+    },
+    "NSMotionUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NSMotionUsageDescription"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 使用耳机运动数据，让 AirPods 可以控制云台方向。"
+          }
+        }
+      }
+    },
+    "NSLocationWhenInUseUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NSLocationWhenInUseUsageDescription"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 使用你的位置只是为了让 iOS 告诉它这台 iPhone 连的是哪个 Wi-Fi，以便在你添加相机 Wi-Fi 设置时推荐这个网络。你的位置不会被存储或分享。"
+          }
+        }
+      }
+    },
+    "NSLocalNetworkUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NSLocalNetworkUsageDescription"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 通过本地 Wi-Fi 连接相机来接收视频并控制相机，还可以把实时画面分享给附近的 OpenPocketCine 手机。"
+          }
+        }
+      }
+    },
+    "NSPhotoLibraryAddUsageDescription": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "NSPhotoLibraryAddUsageDescription"
+          }
+        },
+        "zh-Hans": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OpenPocketCine 会把你选中的片段保存到照片里。"
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}

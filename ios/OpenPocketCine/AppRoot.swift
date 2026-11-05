@@ -108,8 +108,8 @@ final class AppModel {
         return NearbyCardCopy(
             name: FoundCameraIdentity.listTitle(advertisedName: camera.name, modelName: model),
             subtitle: FoundCameraIdentity.listSubtitle(advertisedName: camera.name, modelName: model)
-                + (verified == false ? " · unverified" : ""),
-            status: "Needs approval on the camera")
+                + (verified == false ? String(localized: " · unverified") : ""),
+            status: String(localized: "Needs approval on the camera"))
     }
 
     /// The saved cameras: the shared document `OpenPocketCine.Cameras`, merged on every launch
@@ -155,7 +155,7 @@ final class AppModel {
         for attempt in cameras.attempts.values {
             if case .saved(let camera, _) = attempt.target { return camera.displayName }
         }
-        return "The camera"
+        return String(localized: "The camera")
     }
 
     func answerHotspot(_ connect: Bool) {
@@ -571,7 +571,7 @@ final class AppModel {
             guard let stored = WatcherRelayKeychain.app.hostPasscodeLookup().usableValue else {
                 shareThisFeed = false
                 OperatorPrefs.shareThisFeed = false
-                session.controlNote = "Sharing could not start"
+                session.controlNote = String(localized: "Sharing could not start")
                 return
             }
             sharePasscode = stored
@@ -590,7 +590,7 @@ final class AppModel {
         if relayHost.encoderFailed {
             shareThisFeed = false
             OperatorPrefs.shareThisFeed = false
-            session.controlNote = "Sharing could not start"
+            session.controlNote = String(localized: "Sharing could not start")
             return
         }
         relayTarget = session.control.target
@@ -599,7 +599,7 @@ final class AppModel {
         session.decoder.onIdentityFrame = relayHost.frameSink()
         relayHost.pollState({ [weak self] in self?.relayState() }, onFailure: { [weak self] in
             self?.setShareThisFeed(false)
-            self?.session.controlNote = "Sharing could not start"
+            self?.session.controlNote = String(localized: "Sharing could not start")
         })
     }
 
@@ -941,7 +941,7 @@ struct AppRoot: View {
             AppModelDiagnosticsAnchor.model = model
             DiagnosticCenter.shared.onCopiedForTestFlight = { [weak model] in
                 model?.session.controlNote =
-                    "Diagnostics copied. Paste into TestFlight feedback"
+                    String(localized: "Diagnostics copied. Paste into TestFlight feedback")
             }
             model.prepareStartup()
             model.activateWatchRelay()
@@ -987,7 +987,7 @@ private struct WatcherRecordConfirmation: ViewModifier {
                 titleVisibility: .visible
             ) {
                 Button(
-                    model.session.status.isRecording ? "Stop" : "Start",
+                    model.session.status.isRecording ? String(localized: "Stop") : String(localized: "Start"),
                     role: model.session.status.isRecording ? .destructive : nil
                 ) {
                     model.confirmWatcherRecording()
@@ -1117,7 +1117,7 @@ struct LinkExperience: View {
                 }),
             presenting: model.hotspotQuestion
         ) { _ in
-            Button("Open Settings") {
+            Button(String(localized: "Open Settings")) {
                 model.hotspotQuestion?.reaskOnReturn = true
                 if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) }
             }

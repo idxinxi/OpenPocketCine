@@ -54,13 +54,13 @@ extension LiveAssistPalette where Host == AppModel, Icon == AssistToolIcon {
 extension SessionRecoveryOverlay where Host == AppModel {
     static func progressDetail(_ phase: ConnectionPhase) -> String {
         switch phase {
-        case .idle, .scanning: "Looking for your camera…"
-        case .connectingGatt, .pairing: "Connecting to your camera…"
-        case .awaitingApproval: "Approve on the camera screen if asked."
-        case .readingWifiCreds, .joiningWifi: "Rejoining camera Wi-Fi…"
-        case .openingDatalink: "Restoring the camera connection…"
-        case .live: "Waiting for a new live picture…"
-        case .failed: "Connection attempt failed. Trying again…"
+        case .idle, .scanning: String(localized: "Looking for your camera…")
+        case .connectingGatt, .pairing: String(localized: "Connecting to your camera…")
+        case .awaitingApproval: String(localized: "Approve on the camera screen if asked.")
+        case .readingWifiCreds, .joiningWifi: String(localized: "Rejoining camera Wi-Fi…")
+        case .openingDatalink: String(localized: "Restoring the camera connection…")
+        case .live: String(localized: "Waiting for a new live picture…")
+        case .failed: String(localized: "Connection attempt failed. Trying again…")
         }
     }
 }

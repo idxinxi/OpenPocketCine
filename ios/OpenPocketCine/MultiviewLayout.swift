@@ -8,7 +8,7 @@ enum MultiviewLayout: String, CaseIterable {
     case centerStage = "Center stage"
 
     // Preserve saved layout keys while naming the portrait four-row grid correctly.
-    var displayName: String { self == .grid ? "Grid" : "Center stage" }
+    var displayName: String { self == .grid ? String(localized: "Grid") : String(localized: "Center stage") }
 
     func presentation(
         in size: CGSize, safeArea: MonitorSafeArea = .init(), selected: Int,

@@ -7,19 +7,19 @@ import OpenPocketViewCore
 
 /// Operator-facing media notes. Never name a sister app or another camera brand.
 enum MediaOperatorCopy {
-    static let listing = "Listing camera clips…"
-    static let notConnected = "Connect the camera to list clips."
-    static let playbackFailed = "Camera did not enter playback."
-    static let browsingOnCamera = "Playback is open on the camera. Close to return to live view."
-    static let noClips = "No clips on the camera."
-    static let listFailed = "Could not list camera clips."
-    static let notDeletable = "That clip cannot be deleted from here."
-    static let deleteFailed = "Could not delete that clip."
-    static let downloadFailed = "Could not download that clip."
-    static let thumbFailed = "Could not load that thumbnail."
-    static let clipOpenFailed = "Could not open that clip."
-    static let clipLoading = "Loading clip from camera…"
-    static let clipNotCached = "This clip is not cached on the phone."
+    static let listing = String(localized: "Listing camera clips…")
+    static let notConnected = String(localized: "Connect the camera to list clips.")
+    static let playbackFailed = String(localized: "Camera did not enter playback.")
+    static let browsingOnCamera = String(localized: "Playback is open on the camera. Close to return to live view.")
+    static let noClips = String(localized: "No clips on the camera.")
+    static let listFailed = String(localized: "Could not list camera clips.")
+    static let notDeletable = String(localized: "That clip cannot be deleted from here.")
+    static let deleteFailed = String(localized: "Could not delete that clip.")
+    static let downloadFailed = String(localized: "Could not download that clip.")
+    static let thumbFailed = String(localized: "Could not load that thumbnail.")
+    static let clipOpenFailed = String(localized: "Could not open that clip.")
+    static let clipLoading = String(localized: "Loading clip from camera…")
+    static let clipNotCached = String(localized: "This clip is not cached on the phone.")
 }
 
 /// Playback-held media list + SoftAP HTTP cache. Owned by `CameraSession`.

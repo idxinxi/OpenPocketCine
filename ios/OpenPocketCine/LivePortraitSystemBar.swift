@@ -23,7 +23,7 @@ struct LivePortraitSystemBar: View {
                             )
                             .contentShape(Rectangle())
                         }
-                        .accessibilityLabel("Return to Multiview")
+                        .accessibilityLabel(String(localized: "Return to Multiview"))
                     } else if model.chromeSectionMounts(.lockButton) || interfaceLocked {
                         LiveLockButton(locked: $interfaceLocked)
                             .chromeEditable(.lockButton, editing: editing)

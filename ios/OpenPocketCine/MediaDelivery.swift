@@ -20,9 +20,9 @@ extension FrameioHostNamespace {
 
 extension MonitorClipDeliveryCopy {
     static let openPocketCine = MonitorClipDeliveryCopy(
-        convertHelp: "Choose one output curve for every selected D-Log or D-Log2 clip. Camera originals stay untouched.",
-        convertUnavailableHelp: "Needs a D-Log or D-Log2 clip. Rec.709 stays as-shot.",
-        notLog: { "\($0) isn't D-Log or D-Log2." })
+        convertHelp: String(localized: "Choose one output curve for every selected D-Log or D-Log2 clip. Camera originals stay untouched."),
+        convertUnavailableHelp: String(localized: "Needs a D-Log or D-Log2 clip. Rec.709 stays as-shot."),
+        notLog: { String(localized: "\($0) isn't D-Log or D-Log2.") })
 }
 
 /// Where an internet hop leaves from and returns to.

@@ -23,7 +23,7 @@ struct MultiviewNetworkSetup: View {
                         Spacer()
                     }
                     .padding(24)
-                    .navigationTitle("Shared Wi-Fi")
+                    .navigationTitle(String(localized: "Shared Wi-Fi"))
                     .navigationBarTitleDisplayMode(.inline)
                     .toolbar {
                         ToolbarItem(placement: .confirmationAction) {

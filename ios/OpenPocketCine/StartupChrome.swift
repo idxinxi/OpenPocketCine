@@ -60,7 +60,7 @@ extension View {
 }
 
 enum StartupConnectionCopy {
-    static let openSettings = "Open Settings"
+    static let openSettings = String(localized: "Open Settings")
     static let localNetworkDenied =
         "OpenPocketCine needs Local Network access to reach the camera. Open Settings, turn on Local Network for OpenPocketCine, then try again."
     static let bluetoothDenied =
@@ -69,23 +69,23 @@ enum StartupConnectionCopy {
         "Bluetooth is off. Turn it on in Control Center or Settings, then try again."
     static let bluetoothNotReady = "Bluetooth is not ready yet. Try again in a moment."
     static let personalHotspotOn =
-        "Turn off Personal Hotspot, then try again. While it is on, this iPhone cannot join the camera Wi-Fi."
+        String(localized: "Turn off Personal Hotspot, then try again. While it is on, this iPhone cannot join the camera Wi-Fi.")
     /// DJI Frame Tap or a running DJI Mimo holds the camera and blocks pairing and the
     /// video link. `preCheck` and `scanEmptyHint` match Android word for word.
-    static let preCheckTitle = "Check first"
-    static let preCheck = "Before pairing, turn off DJI Frame Tap and force quit DJI Mimo."
-    static let scanEmptyTitle = "Still looking"
+    static let preCheckTitle = String(localized: "Check first")
+    static let preCheck = String(localized: "Before pairing, turn off DJI Frame Tap and force quit DJI Mimo.")
+    static let scanEmptyTitle = String(localized: "Still looking")
     static let scanEmptyHint =
-        "Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera. Make sure the camera is on and activated, then move closer."
+        String(localized: "Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera. Make sure the camera is on and activated, then move closer.")
     static let pairingDeferred =
-        "The camera is not ready to pair again yet. Force quit DJI Mimo on every phone near the camera, wait a few seconds, then try again."
+        String(localized: "The camera is not ready to pair again yet. Force quit DJI Mimo on every phone near the camera, wait a few seconds, then try again.")
     /// Datalink never answered: another phone holds the camera, or a VPN eats the UDP.
     static let datalinkSilent =
-        "The camera did not answer over its Wi-Fi. Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, pause any VPN or ad blocker, then try again."
+        String(localized: "The camera did not answer over its Wi-Fi. Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, pause any VPN or ad blocker, then try again.")
     static let bluetoothTimedOut =
-        "The camera didn't respond in time. Check Bluetooth, turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, then try again."
+        String(localized: "The camera didn't respond in time. Check Bluetooth, turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, then try again.")
     static let bluetoothEnded =
-        "The camera ended the connection. Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, then try again."
+        String(localized: "The camera ended the connection. Turn off DJI Frame Tap and force quit DJI Mimo on every phone near the camera, then try again.")
 
     /// Why a Bluetooth scan cannot run (`DjiAppleBluetoothLink.unavailableReason`).
     static let bluetoothProblems: Set<String> = [bluetoothDenied, bluetoothOff, bluetoothNotReady]
@@ -111,7 +111,22 @@ enum StartupConnectionCopy {
         if lower.contains("approve") {
             return trimmed
         }
-        return trimmed
+        // Display mapping: the four constants below stay English because the
+        // Bluetooth link matches on them (bluetoothProblems / opensSettings /
+        // reason). Translate them here, at the last step before the operator
+        // sees the message, so matching still runs on the English copy.
+        switch trimmed {
+        case localNetworkDenied:
+            return String(localized: "OpenPocketCine needs Local Network access to reach the camera. Open Settings, turn on Local Network for OpenPocketCine, then try again.")
+        case bluetoothDenied:
+            return String(localized: "OpenPocketCine needs Bluetooth access to find the camera. Open Settings, turn on Bluetooth for OpenPocketCine, then try again.")
+        case bluetoothOff:
+            return String(localized: "Bluetooth is off. Turn it on in Control Center or Settings, then try again.")
+        case bluetoothNotReady:
+            return String(localized: "Bluetooth is not ready yet. Try again in a moment.")
+        default:
+            return trimmed
+        }
     }
 }
 
@@ -122,15 +137,15 @@ extension AppModel {
     func pairingWizard() -> PairingWizard {
         PairingWizard(
             bodies: [
-                "Turn the camera on and keep the phone nearby. Pocket and Nano both appear. Choose the one you want.",
-                "If the camera shows Approve, tap it on that camera's screen. First-time pairing can wait up to 90 seconds.",
-                "We read the camera's network over Bluetooth, then join its Wi-Fi for you.",
-                "Exposure, LUTs and scopes go live as soon as the video link is up.",
+                String(localized: "Turn the camera on and keep the phone nearby. Pocket and Nano both appear. Choose the one you want."),
+                String(localized: "If the camera shows Approve, tap it on that camera's screen. First-time pairing can wait up to 90 seconds."),
+                String(localized: "We read the camera's network over Bluetooth, then join its Wi-Fi for you."),
+                String(localized: "Exposure, LUTs and scopes go live as soon as the video link is up."),
             ],
-            approveLines: ["Look for an Approve / pairing prompt", "Tap it on the camera screen"],
+            approveLines: [String(localized: "Look for an Approve / pairing prompt"), String(localized: "Tap it on the camera screen")],
             joinLines: [
-                "Leave the camera on. It brings up its own Wi-Fi",
-                "On 5.8 GHz that can take about a minute; we keep trying",
+                String(localized: "Leave the camera on. It brings up its own Wi-Fi"),
+                String(localized: "On 5.8 GHz that can take about a minute; we keep trying"),
             ],
             choosing: cameras.scanLooksEmpty
                 ? .init(

@@ -85,7 +85,7 @@ import OpenCineDJIApple
         let clock = clock
         let deadline = clock.now() + confirmationWindow
         tile.recordingBusy = true
-        tile.recordingNote = "Waiting for camera confirmation"
+        tile.recordingNote = String(localized: "Waiting for camera confirmation")
         onStage?(.sent)
         Task { @MainActor [weak tile] in
             var event = ControlWireEvent.unconfirmed
@@ -192,7 +192,7 @@ extension MultiviewSession {
         let start = plan.direction == .start
         if together {
             groupRecordingBusy = true
-            groupRecordingNote = start ? "Starting cameras…" : "Stopping cameras…"
+            groupRecordingNote = start ? String(localized: "Starting cameras…") : String(localized: "Stopping cameras…")
         }
         defer { if together { groupRecordingBusy = false } }
         let sessions = cameraSessions
@@ -201,7 +201,7 @@ extension MultiviewSession {
                 in: multicamGroup, at: multicamSnapshot(), sessions: sessions)
         else {
             // Stale: a camera, link or mode changed after the operator approved.
-            if together { groupRecordingNote = "Cameras changed · try again" }
+            if together { groupRecordingNote = String(localized: "Cameras changed · try again") }
             return
         }
         let result = await submission.finished(sessions: sessions)
@@ -218,16 +218,16 @@ extension MultiviewSession {
         }
         groupRecordingNote =
             result.confirmed == plan.targets.count && allMatch
-            ? (start ? "Recording on \(result.confirmed) cameras" : "Recording stopped")
-            : "\(result.confirmed) of \(plan.targets.count) confirmed · check camera tiles"
+            ? (start ? String(localized: "Recording on \(result.confirmed) cameras") : String(localized: "Recording stopped"))
+            : String(localized: "\(result.confirmed) of \(plan.targets.count) confirmed · check camera tiles")
     }
 
     static func recordingNote(_ outcome: TargetOutcome, start: Bool) -> String? {
         switch outcome {
-        case .confirmed: start ? "Recording" : "Recording stopped"
-        case .rejected(.cameraRefused): "Recording command rejected · check camera"
-        case .rejected, .failed: "Not sent · check camera"
-        case .timedOut, .outcomeUnknown, .accepted, .pending: "No confirmation · check camera"
+        case .confirmed: start ? String(localized: "Recording") : String(localized: "Recording stopped")
+        case .rejected(.cameraRefused): String(localized: "Recording command rejected · check camera")
+        case .rejected, .failed: String(localized: "Not sent · check camera")
+        case .timedOut, .outcomeUnknown, .accepted, .pending: String(localized: "No confirmation · check camera")
         case .superseded: nil
         }
     }

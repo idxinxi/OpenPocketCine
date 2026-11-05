@@ -60,7 +60,7 @@ final class MultiviewSession {
                 }
             }
         }
-        var status = "Add camera"
+        var status = String(localized: "Add camera")
         var failureMessage: String?
         var recovery = MultiviewRecovery()
         @ObservationIgnored var repairTask: Task<Void, Never>?
@@ -74,7 +74,7 @@ final class MultiviewSession {
         let sampleBus = LiveFrameSampleBus()
         var lutEnabled = true
         var effects = MonitorFrameEffects()
-        var lutCaption = "Auto LUT"
+        var lutCaption = String(localized: "Auto LUT")
 
         func updateSettings(_ frame: Duml.Frame) {
             guard let camera else { return }
@@ -118,15 +118,15 @@ final class MultiviewSession {
             if case .dji(let official) = source { lut = official } else { lut = nil }
             lutCaption =
                 settings.colorMode == nil
-                ? "Waiting for camera color" : "Auto · no conversion needed"
+                ? String(localized: "Waiting for camera color") : String(localized: "Auto · no conversion needed")
             if let lut {
-                lutCaption = "Auto · " + lut.title
+                lutCaption = String(localized: "Auto · ") + lut.title
                 if lutEnabled, let cube = BundledOfficialDJILUT.cube(lut) {
                     let gpu = cube.colorCube
                     next.lutDimension = gpu.size
                     next.lutRGBA = gpu.rgbaComponents.withUnsafeBytes { Data($0) }
                 } else if lutEnabled {
-                    lutCaption = "LUT unavailable"
+                    lutCaption = String(localized: "LUT unavailable")
                 }
             }
             next.inspectorSample = previewDemand
@@ -146,7 +146,7 @@ final class MultiviewSession {
         private(set) var previewFresh = false
         private(set) var previewFrames = 0
         var previewAccessibilityValue: String {
-            let state = previewFresh ? "Live" : (camera == nil ? "Empty" : "Reconnecting")
+            let state = previewFresh ? String(localized: "Live") : (camera == nil ? String(localized: "Empty") : String(localized: "Reconnecting"))
             #if DEBUG
                 if ProcessInfo.processInfo.environment["OPV_PHYSICAL_MULTIVIEW_PROBE"] == "1" {
                     // Read-only physical-test evidence from decoded camera status, never
@@ -256,7 +256,7 @@ final class MultiviewSession {
                         ControlLiveLog.line("multiview: station preview enqueued")
                         tile.hasPicture = true
                     }
-                    if tile.status != "Live · Video mode" { tile.status = "Live · Video mode" }
+                    if tile.status != String(localized: "Live · Video mode") { tile.status = String(localized: "Live · Video mode") }
                 }
             }
         }
@@ -398,12 +398,12 @@ final class MultiviewSession {
         case timeout, unavailable, rejected, network, pairingDeferred
         var errorDescription: String? {
             switch self {
-            case .timeout: "Camera did not respond. Close other camera apps and try again."
-            case .unavailable: "Camera is not nearby. Check that it is powered on."
+            case .timeout: String(localized: "Camera did not respond. Close other camera apps and try again.")
+            case .unavailable: String(localized: "Camera is not nearby. Check that it is powered on.")
             case .rejected:
-                "Camera could not complete this step. Check the Wi-Fi details and try again."
-            case .network: "Join the shared Wi-Fi network on this device first."
-            case .pairingDeferred: "Camera is not ready to pair again. Please try again."
+                String(localized: "Camera could not complete this step. Check the Wi-Fi details and try again.")
+            case .network: String(localized: "Join the shared Wi-Fi network on this device first.")
+            case .pairingDeferred: String(localized: "Camera is not ready to pair again. Please try again.")
             }
         }
     }
@@ -540,7 +540,7 @@ final class MultiviewSession {
                 beforeStationChange: {
                     guard self.recordStationChange(camera) else {
                         throw ProvisioningFailure.message(
-                            "Could not save camera Wi-Fi cleanup. Try again.")
+                            String(localized: "Could not save camera Wi-Fi cleanup. Try again."))
                     }
                 },
                 onRestored: { restored in
@@ -550,7 +550,7 @@ final class MultiviewSession {
                         self.persistStage()
                     } else {
                         self.networkSetupError =
-                            "Camera Wi-Fi could not be restored. Keep it powered on and close Multiview to retry."
+                            String(localized: "Camera Wi-Fi could not be restored. Keep it powered on and close Multiview to retry.")
                     }
                 }, onFound: onFound)
         }
@@ -727,12 +727,12 @@ final class MultiviewSession {
             if !snapshot.pathReady, now.timeIntervalSince(tile.pathLostAt ?? now) > 45 {
                 tile.recovery.fail()
                 tile.failureMessage =
-                    "Shared network unavailable. Rejoin it, then reconnect this camera."
+                    String(localized: "Shared network unavailable. Rejoin it, then reconnect this camera.")
             }
             return
         }
         ControlLiveLog.line("multiview: repair action=\(action)")
-        tile.status = "Reconnecting…"
+        tile.status = String(localized: "Reconnecting…")
         if action == .resendLiveViewEnable {
             guard tile.decoder.isPresentationReady, let camera = tile.camera else {
                 tile.recovery = previousRecovery
@@ -830,7 +830,7 @@ final class MultiviewSession {
         }
         guard running, !Task.isCancelled, tile.camera != nil else { return }
         guard tile.recovery.beginRejoin() else {
-            tile.failureMessage = "Could not restore preview. Tap Reconnect to try again."
+            tile.failureMessage = String(localized: "Could not restore preview. Tap Reconnect to try again.")
             return
         }
         await connectPreview(tile)
@@ -844,7 +844,7 @@ final class MultiviewSession {
                 ResourceRequest(entry: MonitorEntryID($0.id), device: nil, claims: [])
             }, budget: MultiviewQualificationPolicy.budget)
         guard reasons.isEmpty else {
-            error = "Multiview preview is not available for this camera model yet."
+            error = String(localized: "Multiview preview is not available for this camera model yet.")
             return
         }
         guard running, networkConfigured, !closing, !busy, !tile.connecting, tile.camera == nil,
@@ -856,7 +856,7 @@ final class MultiviewSession {
         tile.camera = camera
         tile.experimentalNetwork = experimental
         tile.networkVerified = false
-        tile.status = "Connecting · approve on camera"
+        tile.status = String(localized: "Connecting · approve on camera")
         refreshDiscovery()
         defer {
             tile.connecting = false
@@ -872,14 +872,14 @@ final class MultiviewSession {
             stage = "Bluetooth pairing"
             try await client.connect(camera)
             if camera.model.family == .nano {
-                tile.status = "Waking camera Wi-Fi"
+                tile.status = String(localized: "Waking camera Wi-Fi")
                 guard
                     try await client.exchange(Commands.session5310(id: client.next())).payload == [
                         1, 0, 0, 0,
                     ]
                 else {
                     throw ProvisioningFailure.message(
-                        "The Nano did not confirm its Wi-Fi wake. Keep it powered on and try again."
+                        String(localized: "The Nano did not confirm its Wi-Fi wake. Keep it powered on and try again.")
                     )
                 }
                 try await Task.sleep(for: .seconds(1))
@@ -909,7 +909,7 @@ final class MultiviewSession {
             guard running, !Task.isCancelled else { return }
             tile.driver?.close()
             tile.driver = nil
-            tile.status = "Could not connect"
+            tile.status = String(localized: "Could not connect")
             tile.failureMessage = djiConnectionFailureDescription(
                 error, fallback: error.localizedDescription)
             ControlLiveLog.line(
@@ -933,8 +933,8 @@ final class MultiviewSession {
             tile.driver = nil
             tile.publishing = false
             tile.controlHost = nil
-            tile.status = "Could not connect preview"
-            tile.failureMessage = "Could not restore preview. Tap Reconnect to try again."
+            tile.status = String(localized: "Could not connect preview")
+            tile.failureMessage = String(localized: "Could not restore preview. Tap Reconnect to try again.")
             tile.recovery.fail()
         }
     }
@@ -960,7 +960,7 @@ final class MultiviewSession {
         }
         for attempt in 1...2 {
             guard running else { throw CancellationError() }
-            tile.status = "Finding camera on Wi-Fi · \(attempt) of 2"
+            tile.status = String(localized: "Finding camera on Wi-Fi · \(attempt) of 2")
             let candidates = try await search.candidates(
                 excluding: excluded, hotspot: usePhoneHotspot)
             for address in candidates {
@@ -979,7 +979,7 @@ final class MultiviewSession {
             if attempt == 1 { try await Task.sleep(for: .seconds(3)) }
         }
         throw ProvisioningFailure.message(
-            "Could not find this camera on the shared Wi-Fi. Check that both devices use the same network and that client isolation is off, then tap Reconnect."
+            String(localized: "Could not find this camera on the shared Wi-Fi. Check that both devices use the same network and that client isolation is off, then tap Reconnect.")
         )
     }
 
@@ -998,7 +998,7 @@ final class MultiviewSession {
             !tiles.contains(where: { $0.id != tile.id && $0.controlHost == tile.cameraAddress })
         else {
             throw ProvisioningFailure.message(
-                "Camera discovery returned an unavailable address. Tap Reconnect to search again.")
+                String(localized: "Camera discovery returned an unavailable address. Tap Reconnect to search again."))
         }
         tile.driver?.close()
         tile.driver = nil
@@ -1045,7 +1045,7 @@ final class MultiviewSession {
             reply.cmdSet == 7, reply.cmdId == 7, reply.payload == identity
         else {
             throw ProvisioningFailure.message(
-                "This network connection did not identify the selected camera."
+                String(localized: "This network connection did not identify the selected camera.")
             )
         }
         guard running else { throw CancellationError() }
@@ -1054,7 +1054,7 @@ final class MultiviewSession {
             driver.close()
             tile.driver = nil
             tile.failureMessage = nil
-            tile.status = "Wi-Fi join verified · Preview not supported yet"
+            tile.status = String(localized: "Wi-Fi join verified · Preview not supported yet")
             ControlLiveLog.line(
                 "multiview: experimental LAN identity verified; preview unavailable")
             return
@@ -1083,7 +1083,7 @@ final class MultiviewSession {
         tile.enableSends = 1
         tile.publishing = true
         tile.previewStarted = Date()
-        if !tile.hasPicture { tile.status = "Waiting for video" }
+        if !tile.hasPicture { tile.status = String(localized: "Waiting for video") }
     }
 
     func remove(_ tile: Tile) async -> Bool {
@@ -1120,7 +1120,7 @@ final class MultiviewSession {
         tile.enableSends = 0
         tile.lastEnable = .distantPast
         tile.decoder.reset()
-        tile.status = "Add camera"
+        tile.status = String(localized: "Add camera")
         persistStage()
         refreshDiscovery()
         return true
@@ -1235,7 +1235,7 @@ final class MultiviewSession {
         closing = false
         if !pendingReset.isEmpty {
             error =
-                "Some cameras could not return to their own Wi-Fi. Keep them powered on and close Multiview again to retry."
+                String(localized: "Some cameras could not return to their own Wi-Fi. Keep them powered on and close Multiview again to retry.")
             return false
         }
         return true

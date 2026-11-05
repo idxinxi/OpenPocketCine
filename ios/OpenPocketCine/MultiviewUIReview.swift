@@ -77,7 +77,7 @@ import OpenCineDJIApple
             }
             if recovering, count > 1 {
                 session.tiles[1].recovering = true
-                session.tiles[1].status = "Restoring picture…"
+                session.tiles[1].status = String(localized: "Restoring picture…")
             }
             return session
         }

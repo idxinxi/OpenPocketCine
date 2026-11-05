@@ -49,7 +49,7 @@ extension CameraSession: DJIConnectPort {
 
     func connect(cameraID: String, setup: DJISetup, restoreAccessPoint: Bool) async throws -> DJIConnection {
         guard let id = UUID(uuidString: cameraID) else {
-            throw Self.failure(.notFound, "camera.unknown", "This camera is not a Bluetooth camera this phone knows.")
+            throw Self.failure(.notFound, "camera.unknown", String(localized: "This camera is not a Bluetooth camera this phone knows."))
         }
         let next: CameraConnectionSetup
         let nextNetwork: String?
@@ -150,7 +150,7 @@ extension CameraSession: DJIConnectPort {
         if connectionSetup == .phoneHotspot, DjiAppleSharedWiFiPath.address(hotspot: true) == nil {
             // The usual cause: the hotspot was off, so the camera had nothing to join.
             message =
-                "The camera could not find this iPhone’s hotspot. Turn on Personal Hotspot and Allow Others to Join, then try again."
+                String(localized: "The camera could not find this iPhone’s hotspot. Turn on Personal Hotspot and Allow Others to Join, then try again.")
         }
         let (reason, code) = Self.reason(lastConnectError, why)
         var failure = Self.failure(reason, code, message)
@@ -160,7 +160,7 @@ extension CameraSession: DJIConnectPort {
 
     static func failure(_ reason: ConnectionFailure.Reason, _ code: String, _ message: String) -> ConnectionFailure {
         ConnectionFailure(
-            reason: reason, title: "Couldn’t connect over Camera Wi-Fi", message: message, actions: [.retry],
+            reason: reason, title: String(localized: "Couldn’t connect over Camera Wi-Fi"), message: message, actions: [.retry],
             code: "\(DJICameraSessionAdapter.integration.rawValue).\(code)")
     }
 

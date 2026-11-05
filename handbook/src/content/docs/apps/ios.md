@@ -5,7 +5,9 @@ description: SwiftUI iPhone and iPad shell. Physical device for BLE and camera W
 
 The production iOS app is a universal iPhone and iPad SwiftUI shell in
 `ios/OpenPocketCine/`. It is the operator-proven datalink. Generate the Xcode
-project with XcodeGen — see [Setup](../../guides/setup/).
+project with XcodeGen — see [Setup](../../guides/setup/). The shell follows the
+device language; its own copy is available in English and Simplified Chinese,
+while shared-component copy remains English for now.
 
 ## Cameras and pairing
 

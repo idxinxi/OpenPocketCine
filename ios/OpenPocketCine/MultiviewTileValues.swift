@@ -21,12 +21,12 @@ struct MultiviewTelemetryPresentation {
     var iso: String { settings.iso > 0 ? "\(settings.iso)" : "—" }
     var shutter: String { settings.shutterDenom > 0 ? "1/\(settings.shutterDenom)" : "—" }
     var whiteBalance: String {
-        settings.whiteBalance.map { $0.mode == .auto ? "Auto" : "\($0.kelvin)K" } ?? "—"
+        settings.whiteBalance.map { $0.mode == .auto ? String(localized: "Auto") : "\($0.kelvin)K" } ?? "—"
     }
     var focus: String {
         switch settings.focusMode {
-        case .single: "AF-S"
-        case .continuous: "AF-C"
+        case .single: String(localized: "AF-S")
+        case .continuous: String(localized: "AF-C")
         case nil: "—"
         }
     }
@@ -47,8 +47,8 @@ struct MultiviewTelemetryPresentation {
     /// The stage's program readouts and Grid's in-tile row.
     var readouts: [MultiviewReadout] {
         [
-            .init(title: "ISO", value: iso), .init(title: "SHUTTER", value: shutter),
-            .init(title: "WB", value: whiteBalance), .init(title: "FOCUS", value: focus),
+            .init(title: String(localized: "ISO"), value: iso), .init(title: String(localized: "SHUTTER"), value: shutter),
+            .init(title: String(localized: "WB"), value: whiteBalance), .init(title: String(localized: "FOCUS"), value: focus),
         ]
     }
 
@@ -60,20 +60,23 @@ struct MultiviewTelemetryPresentation {
     }
 
     @MainActor static func sessionSummary(_ session: MultiviewSession) -> String {
+        // The partial-confirmation note must keep showing after the operation
+        // ends, so it is recognised by the word that only appears in that
+        // note's copy in both catalog locales ("confirmed" / "已确认").
         if let note = session.groupRecordingNote,
-            session.groupRecordingBusy || note.contains("confirmed")
+            session.groupRecordingBusy || note.contains("confirmed") || note.contains("已确认")
         {
             return note
         }
         let assigned = session.tiles.filter { $0.camera != nil }
-        guard !assigned.isEmpty else { return "Ready for your first camera" }
+        guard !assigned.isEmpty else { return String(localized: "Ready for your first camera") }
         let recovering = assigned.filter { $0.recovering }.count
         let live = assigned.filter { $0.hasPicture && !$0.recovering }.count
-        if recovering > 0 { return "\(live) live · \(recovering) reconnecting" }
-        if live != assigned.count { return "\(live) live · \(assigned.count) cameras" }
+        if recovering > 0 { return String(localized: "\(live) live · \(recovering) reconnecting") }
+        if live != assigned.count { return String(localized: "\(live) live · \(assigned.count) cameras") }
         let recording = assigned.filter { $0.recordingActive == true }.count
-        if recording > 0 { return "\(recording) of \(assigned.count) recording" }
-        return "\(assigned.count) cameras connected"
+        if recording > 0 { return String(localized: "\(recording) of \(assigned.count) recording") }
+        return String(localized: "\(assigned.count) cameras connected")
     }
 }
 
@@ -89,31 +92,31 @@ extension MultiviewSession {
         let settled = !busy && !tile.connecting && !tile.recovering
         var actions = [
             MultiviewCameraAction(
-                MultiviewCameraAction.liveView, "Live View",
+                MultiviewCameraAction.liveView, String(localized: "Live View"),
                 enabled: tile.controlHost != nil && !tile.recovering),
             MultiviewCameraAction(
                 MultiviewTileAction.record,
-                tile.recordingActive == true ? "Stop recording" : "Start recording",
+                tile.recordingActive == true ? String(localized: "Stop recording") : String(localized: "Start recording"),
                 kind: .record,
                 enabled: tile.recordingAvailable && !tile.recordingBusy && !groupRecordingBusy
                     && !closing),
             MultiviewCameraAction(
-                MultiviewTileAction.lut, tile.lutEnabled ? "Disable Auto LUT" : "Enable Auto LUT",
+                MultiviewTileAction.lut, tile.lutEnabled ? String(localized: "Disable Auto LUT") : String(localized: "Enable Auto LUT"),
                 enabled: preview),
         ]
         if preview || tile.failureMessage != nil {
             actions.append(
-                .init(MultiviewTileAction.reconnect, "Reconnect", enabled: settled, closes: true))
+                .init(MultiviewTileAction.reconnect, String(localized: "Reconnect"), enabled: settled, closes: true))
         }
         if tile.failureMessage != nil, !tile.experimentalNetwork, tile.identity == nil {
             actions.append(
                 .init(
-                    MultiviewTileAction.experimental, "Try experimental shared Wi-Fi",
+                    MultiviewTileAction.experimental, String(localized: "Try experimental shared Wi-Fi"),
                     enabled: settled, closes: true))
         }
         actions.append(
             .init(
-                MultiviewTileAction.remove, "Remove camera", kind: .destructive,
+                MultiviewTileAction.remove, String(localized: "Remove camera"), kind: .destructive,
                 enabled: !(busy || tile.connecting || groupRecordingBusy || tile.recordingBusy
                     || closing)))
         let note = tile.recordingNote
@@ -124,20 +127,20 @@ extension MultiviewSession {
             timecode: tile.timecodeReadout,
             tally: MultiviewTelemetryPresentation.recordingStatus(tile),
             recording: tile.recordingActive == true, lut: tile.lutEnabled, note: note,
-            tileNote: note == "Recording" || note == "Recording stopped" ? nil : note,
+            tileNote: note == String(localized: "Recording") || note == String(localized: "Recording stopped") ? nil : note,
             readouts: values.readouts,
             status: showsStatus
                 ? MultiviewTileStatus(
                     text: tile.recovering
-                        ? "Restoring picture…"
-                        : tile.failureMessage == nil ? tile.status : "Connection failed · Options",
+                        ? String(localized: "Restoring picture…")
+                        : tile.failureMessage == nil ? tile.status : String(localized: "Connection failed · Options"),
                     detail: tile.failureMessage ?? tile.status,
                     inProgress: tile.recovering
                         || (tile.failureMessage == nil && !tile.networkVerified))
                 : nil,
             detail: tile.status, failure: tile.failureMessage,
             footnote: tile.networkVerified && !preview
-                ? "Remove this camera to enable group recording for your other cameras." : nil,
+                ? String(localized: "Remove this camera to enable group recording for your other cameras.") : nil,
             actions: actions, accessibilityValue: tile.previewAccessibilityValue
         ).withPower(power)
     }

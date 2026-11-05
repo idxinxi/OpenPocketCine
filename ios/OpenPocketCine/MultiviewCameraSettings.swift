@@ -77,7 +77,7 @@ struct MultiviewCameraSettings: View {
         // reveal and tap-outside dismissal. Its concrete root keeps editor
         // cleanup tied to closing the panel, not to camera/category identity.
         MonitorInspector(
-            title: "Camera settings", viewport: viewport, safeArea: safeArea,
+            title: String(localized: "Camera settings"), viewport: viewport, safeArea: safeArea,
             trailing: true, hasNavigation: false, preferredWidth: .assist,
             scrollsContent: false, closeIdentifier: "monitor.capture.close", compactHeader: true,
             onClose: close
@@ -94,7 +94,7 @@ struct MultiviewCameraSettings: View {
                                 AssistInspectorPreview(
                                     tool: .lut, pictureEffects: previewEffects(tile)
                                 )
-                                .accessibilityLabel("\(tile.camera?.name ?? "Camera") preview")
+                                .accessibilityLabel(String(localized: "\(tile.camera?.name ?? String(localized: "Camera")) preview"))
                                 .environment(model)
                                 .id(ObjectIdentifier(model))
                                 .frame(maxWidth: previewWidth)
@@ -156,8 +156,8 @@ struct MultiviewCameraSettings: View {
                 } else {
                     Text(
                         selected?.recovering == true
-                            ? "Reconnect this camera before changing settings."
-                            : "Waiting for camera controls…"
+                            ? String(localized: "Reconnect this camera before changing settings.")
+                            : String(localized: "Waiting for camera controls…")
                     )
                     .font(MonitorTheme.font(12)).foregroundStyle(MonitorTheme.muted)
                     .padding(.vertical, 14)
@@ -197,19 +197,19 @@ struct MultiviewCameraSettings: View {
             options: cameras.map(\.id), selection: selectedID,
             title: { id in
                 guard let index = session.tiles.firstIndex(where: { $0.id == id }) else {
-                    return "Camera"
+                    return String(localized: "Camera")
                 }
                 return MultiviewTelemetryPresentation.letter(index) + " · "
-                    + (session.tiles[index].camera?.name ?? "Camera")
+                    + (session.tiles[index].camera?.name ?? String(localized: "Camera"))
             },
             identifier: { id in
                 "multiview.settings.camera.\(session.tiles.firstIndex(where: { $0.id == id }) ?? 0)"
             },
             accessibilityValue: { id in
-                guard let tile = cameras.first(where: { $0.id == id }) else { return "Unavailable" }
+                guard let tile = cameras.first(where: { $0.id == id }) else { return String(localized: "Unavailable") }
                 return tile.recovering
-                    ? "Reconnecting"
-                    : session.controlsAvailable(for: tile) ? "Ready" : "Unavailable"
+                    ? String(localized: "Reconnecting")
+                    : session.controlsAvailable(for: tile) ? String(localized: "Ready") : String(localized: "Unavailable")
             },
             select: { id in
                 if let tile = cameras.first(where: { $0.id == id }) { select(tile) }
@@ -262,8 +262,8 @@ struct MultiviewCameraSettings: View {
 
     private func title(_ category: CaptureSheet) -> String {
         switch category {
-        case .wb: "WB"
-        case .resolution: "Format"
+        case .wb: String(localized: "WB")
+        case .resolution: String(localized: "Format")
         default: category.rawValue.capitalized
         }
     }
