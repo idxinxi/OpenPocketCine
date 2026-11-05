@@ -6,6 +6,8 @@
 
 # OpenPocketCine
 
+[简体中文](README.zh-CN.md) | English
+
 **The open field monitor for DJI Osmo.**<br>
 Pro scopes, exposure assists, camera and gimbal control, playback and LUT export on your phone.
 Free and open source.
