@@ -17,8 +17,8 @@ class AppLutPickerCopyTest {
                 officialCubeCaption = "Official DJI Rec.709 cube",
                 cameraLooksCaption = "Official DJI looks for this color / camera",
             ),
-            AppLutPickerCopy,
+            appLutPickerCopy(),
         )
-        assertEquals("djiAuto", AppLutPickerCopy.autoId)
+        assertEquals("djiAuto", appLutPickerCopy().autoId)
     }
 }

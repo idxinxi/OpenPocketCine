@@ -67,6 +67,8 @@ import com.opencapture.openpocketcine.LiveDesign
 import com.opencapture.openpocketcine.LiveType
 import com.opencapture.monitorui.MonitorIcon
 import com.opencapture.opencine.runtime.InspectorPreviewPipeline
+import androidx.compose.ui.res.stringResource
+import com.opencapture.openpocketcine.R
 
 internal fun multiviewSettingsCategories(camera: CameraModel, status: CameraStatus,
     controls: ControlCapabilities): List<LiveSheet> = buildList {
@@ -81,10 +83,18 @@ internal fun multiviewSettingsCategories(camera: CameraModel, status: CameraStat
 internal fun multiviewSettingsLocked(sheet: LiveSheet, recording: Boolean): Boolean =
     recording && sheet in listOf(LiveSheet.FORMAT, LiveSheet.COLOR, LiveSheet.MODE)
 
+@Composable
 private fun LiveSheet.settingsLabel(): String = when (this) {
-    LiveSheet.EXPO -> "Exposure"
-    LiveSheet.WB -> "WB"
-    LiveSheet.ISO -> "ISO"
+    LiveSheet.EXPO -> stringResource(R.string.settings_sheet_exposure)
+    LiveSheet.WB -> stringResource(R.string.settings_sheet_wb)
+    LiveSheet.ISO -> stringResource(R.string.settings_sheet_iso)
+    LiveSheet.SHUTTER -> stringResource(R.string.settings_sheet_shutter)
+    LiveSheet.FOCUS -> stringResource(R.string.settings_sheet_focus)
+    LiveSheet.APERTURE -> stringResource(R.string.settings_sheet_aperture)
+    LiveSheet.FORMAT -> stringResource(R.string.settings_sheet_format)
+    LiveSheet.COLOR -> stringResource(R.string.settings_sheet_color)
+    LiveSheet.MODE -> stringResource(R.string.settings_sheet_mode)
+    LiveSheet.AUDIO -> stringResource(R.string.settings_sheet_audio)
     else -> name.lowercase().replaceFirstChar { it.uppercase() }
 }
 
@@ -115,10 +125,11 @@ internal fun MultiviewCameraSettings(
     }
     val camera = tile?.camera
     val controls = tile?.controlsModel
+    val closeSettingsDescription = stringResource(R.string.multiview_close_settings_description)
     val ready = camera != null && controls != null && available
     // Live View's gimbal side panel container: trailing edge, width, glass, reveal and tap-outside dismissal.
     MonitorInspector(
-        title = "Camera settings",
+        title = stringResource(R.string.multiview_camera_settings_title),
         viewportWidth = width,
         viewportHeight = height,
         onDismiss = onDismiss,
@@ -133,7 +144,7 @@ internal fun MultiviewCameraSettings(
             // Inset from the panel corner; the 48dp target overflows the one-line header.
             Box(Modifier.padding(end = 8.dp).height(20.dp).wrapContentHeight(unbounded = true)) {
                 Box(Modifier.size(48.dp).chromeClickable(onClick = onDismiss)
-                    .semantics { contentDescription = "Close camera settings"; role = Role.Button },
+                    .semantics { contentDescription = closeSettingsDescription; role = Role.Button },
                     contentAlignment = Alignment.Center) {
                     MonitorIcon(MonitorIcon.X, null, Modifier.size(13.dp), LiveDesign.muted)
                 }
@@ -146,7 +157,7 @@ internal fun MultiviewCameraSettings(
             val cameraTabScroll = rememberScrollState()
             Row(Modifier.fillMaxWidth().monitorScrollFade(cameraTabScroll, vertical = false).horizontalScroll(cameraTabScroll)) {
                 MonitorDrawerTabs(
-                    tabs = cameras.map { "${'A' + it.index} · ${it.camera?.name.orEmpty()}" },
+                    tabs = cameras.map { stringResource(R.string.multiview_camera_tab, "${'A' + it.index}", it.camera?.name.orEmpty()) },
                     selected = cameras.indexOf(tile).coerceAtLeast(0),
                     onSelect = { index ->
                         if (selectedIndex != cameras[index].index) {
@@ -205,8 +216,8 @@ internal fun MultiviewCameraSettings(
                     }
                 }
             } else {
-                Text(if (tile?.recovering == true) "Reconnect this camera before changing settings."
-                    else "Camera settings are available when its connection is ready.",
+                Text(if (tile?.recovering == true) stringResource(R.string.multiview_settings_reconnect_first)
+                    else stringResource(R.string.multiview_settings_not_ready),
                     color = LiveDesign.muted, style = LiveType.text(13f), modifier = Modifier.padding(vertical = 16.dp))
             }
         }
@@ -236,6 +247,6 @@ private fun MultiviewSettingsPreview(tile: MultiviewSession.Tile, modifier: Modi
     }
     com.opencapture.opencine.cameracontrols.MonitorOperatorInspectorImagePreview(
         com.opencapture.monitorui.MonitorAssistTool.LUT, null, client, tile.plan,
-        tile, null, false, modifier, "${tile.camera?.name ?: "Camera"} preview",
+        tile, null, false, modifier, stringResource(R.string.multiview_settings_preview_description, tile.camera?.name ?: stringResource(R.string.camera_name_fallback)),
         com.opencapture.opencine.cameracontrols.MonitorInspectorPreviewLayout.SOURCE)
 }

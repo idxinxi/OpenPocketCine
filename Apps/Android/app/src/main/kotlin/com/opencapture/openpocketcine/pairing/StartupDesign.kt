@@ -2,7 +2,6 @@ package com.opencapture.openpocketcine.pairing
 
 import androidx.compose.foundation.background
 import androidx.compose.ui.Modifier
-import com.opencapture.opencine.dji.DjiFailures
 import com.opencapture.opencine.vocabulary.ConnectionPhase
 import com.opencapture.openpocketcine.LiveDesign
 
@@ -19,9 +18,3 @@ fun ConnectionPhase.isBusy(): Boolean =
         else -> true
     }
 
-object StartupConnectionCopy {
-    // Frame Tap blocks pairing and connecting; DJI Mimo on any nearby phone holds the camera.
-    // Same wording as iOS. Failure cards add `DjiFailures.DJI_APPS_TIP` themselves.
-    const val PAIRING_PRECHECK = "Before pairing, turn off DJI Frame Tap and force quit DJI Mimo."
-    const val STILL_LOOKING = "${DjiFailures.DJI_APPS_TIP} Make sure the camera is on and activated, then move closer."
-}

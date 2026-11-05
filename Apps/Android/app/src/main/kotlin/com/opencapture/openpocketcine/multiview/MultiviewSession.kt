@@ -22,6 +22,7 @@ import android.content.Context
 import android.os.SystemClock
 import android.util.Log
 import android.view.Surface
+import androidx.annotation.StringRes
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
@@ -119,6 +120,11 @@ class MultiviewSession(
     private val resetCamera: (suspend (MultiviewStageStore.Camera) -> Boolean)? = null,
 ) {
     private val app = context.applicationContext
+
+    /** Resolve UI copy for tile/status text built outside composition; the device locale wins. */
+    internal fun localized(@StringRes id: Int): String = app.getString(id)
+
+    internal fun localizedFormat(@StringRes id: Int, vararg args: Any): String = app.getString(id, *args)
 
     /** Nested, not inner: Compose needs stability metadata on this type (an inner class has none). */
     class Tile(
@@ -221,7 +227,7 @@ class MultiviewSession(
                 cameraState = value
                 if (replaced) control.linkDidChange()
             }
-        var status by mutableStateOf("Add camera")
+        var status by mutableStateOf(app.getString(R.string.multiview_status_add_camera))
         var failureMessage by mutableStateOf<String?>(null)
         val recovery = MultiviewRecoveryLadder()
         var repairJob: Job? = null
@@ -365,7 +371,7 @@ class MultiviewSession(
             enableSends = 0
             lastEnable = 0L
             decoder.reset()
-            status = "Add camera"
+            status = app.getString(R.string.multiview_status_add_camera)
         }
     }
 
@@ -648,7 +654,7 @@ class MultiviewSession(
         networkSetupError = null
         try {
             if (!com.opencapture.opencine.appkit.validStationCredentials(ssid, password, usePhoneHotspot)) {
-                throw MultiviewFailure.Message("Check the network name and password.")
+                throw MultiviewFailure.Message(localized(R.string.multiview_error_check_credentials))
             }
             joinSharedNetwork()
             networkStore.save(ssid, password, usePhoneHotspot)
@@ -687,7 +693,7 @@ class MultiviewSession(
                 selected,
                 beforeStationChange = {
                     if (!recordStationChange(selected)) {
-                        throw MultiviewFailure.Message("Could not save camera Wi-Fi cleanup. Try again.")
+                        throw MultiviewFailure.Message(localized(R.string.multiview_error_save_cleanup))
                     }
                 },
                 onRestored = { restored ->
@@ -697,7 +703,7 @@ class MultiviewSession(
                         persistStage()
                     } else {
                         networkSetupError =
-                            "Camera Wi-Fi could not be restored. Keep it powered on and close Multiview to retry."
+                            localized(R.string.multiview_error_wifi_not_restored)
                     }
                 }, onFound = onFound,
             )
@@ -735,7 +741,7 @@ class MultiviewSession(
             MultiviewQualificationPolicy.budget,
         )
         if (reasons.isNotEmpty()) {
-            error = "Multiview preview is not available for this camera model yet."
+            error = localized(R.string.multiview_error_preview_not_available_model)
             return
         }
         if (!running || !networkConfigured || closing || busy || tile.connecting || tile.camera != null ||
@@ -748,7 +754,7 @@ class MultiviewSession(
         tile.experimentalNetwork = experimental
         tile.networkVerified = false
         tile.failureMessage = null
-        tile.status = "Connecting · approve on camera"
+        tile.status = localized(R.string.multiview_status_connecting_approve)
         persistStage()
         var stage = "host Wi-Fi"
         try {
@@ -756,11 +762,11 @@ class MultiviewSession(
             stage = "Bluetooth pairing"
             client.connect(camera)
             if (camera.model.family == "nano") {
-                tile.status = "Waking camera Wi-Fi"
+                tile.status = localized(R.string.multiview_status_waking_wifi)
                 val wake = client.exchange(DjiNative.CMD_SESSION_5310).payload.map { it.toInt() and 0xFF }
                 if (wake != listOf(1, 0, 0, 0)) {
                     throw MultiviewFailure.Message(
-                        "The Nano did not confirm its Wi-Fi wake. Keep it powered on and try again.")
+                        localized(R.string.multiview_error_nano_wake))
                 }
                 delay(1_000)
             }
@@ -816,8 +822,8 @@ class MultiviewSession(
             if (!running) return
             tile.driver?.close()
             tile.driver = null
-            tile.status = "Could not connect"
-            tile.failureMessage = error.message ?: "Could not connect"
+            tile.status = localized(R.string.multiview_status_could_not_connect)
+            tile.failureMessage = error.message ?: localized(R.string.multiview_status_could_not_connect)
             log("multiview: add failed stage=$stage error=${error.javaClass.simpleName}")
             // Keep the tile available for discovery retry after a successful join.
         } finally {
@@ -890,8 +896,8 @@ class MultiviewSession(
             tile.driver = null
             tile.publishing = false
             tile.controlHost = null
-            tile.status = "Could not connect preview"
-            tile.failureMessage = "Could not restore preview. Tap Reconnect to try again."
+            tile.status = localized(R.string.multiview_status_could_not_connect_preview)
+            tile.failureMessage = localized(R.string.multiview_error_restore_preview)
             tile.recovery.fail()
         } finally {
             tile.connecting = false
@@ -919,7 +925,7 @@ class MultiviewSession(
             }
             for (attempt in 1..2) {
                 if (!running) throw CancellationException("multiview closed")
-                tile.status = "Finding camera on Wi-Fi · $attempt of 2"
+                tile.status = localizedFormat(R.string.multiview_status_finding_on_wifi, attempt)
                 val candidates = search.candidates(excluded)
                 for (address in candidates) {
                     if (!running) throw CancellationException("multiview closed")
@@ -938,7 +944,7 @@ class MultiviewSession(
                 if (attempt == 1) delay(3_000)
             }
             throw MultiviewFailure.Message(
-                "Could not find this camera on the shared Wi-Fi. Check that both devices use the same network and that client isolation is off, then tap Reconnect.")
+                localized(R.string.multiview_error_not_found_on_wifi))
         } finally {
             search.cancel()
             searches.remove(tile.id)
@@ -954,7 +960,7 @@ class MultiviewSession(
             if (!running || !SharedWiFi.validAddress(address) ||
                 tiles.any { it.id != tile.id && it.controlHost == address }
             ) {
-                throw MultiviewFailure.Message("Camera discovery returned an unavailable address. Tap Reconnect to search again.")
+                throw MultiviewFailure.Message(localized(R.string.multiview_error_unavailable_address))
             }
             tile.driver?.close()
             tile.driver = null
@@ -967,7 +973,7 @@ class MultiviewSession(
             tile.enableSends = 0
             tile.lastEnable = 0L
             if (tile.hasPicture) tile.decoder.beginIDRHold() else tile.decoder.reset()
-            tile.status = "Connecting normal preview"
+            tile.status = localized(R.string.multiview_status_connecting_preview)
             val driver = DatalinkDriver(
                 path, camera.model.datalinkPort, camera.model.tcpPoke, camera.model.pairingToken,
                 cameraModel = camera.model, host = address,
@@ -1003,7 +1009,7 @@ class MultiviewSession(
                 delay(50)
             }
             if (reply?.payload?.contentEquals(identity) != true) {
-                throw MultiviewFailure.Message("This network connection did not identify the selected camera.")
+                throw MultiviewFailure.Message(localized(R.string.multiview_error_identity_mismatch))
             }
             if (!running) throw CancellationException("multiview closed")
             tile.networkVerified = true
@@ -1011,7 +1017,7 @@ class MultiviewSession(
                 driver.close()
                 tile.driver = null
                 tile.failureMessage = null
-                tile.status = "Wi-Fi join verified · Preview not supported yet"
+                tile.status = localized(R.string.multiview_status_join_verified_no_preview)
                 log("multiview: experimental LAN identity verified; preview unavailable")
                 return
             }
@@ -1023,12 +1029,12 @@ class MultiviewSession(
             val input = tile.claimedInput()
             driver.onAccessUnit = { au, epoch ->
                 if (tile.decoder.decode(au, input, epoch)) {
-                    if (!tile.hasPicture || tile.status != LIVE_STATUS) {
+                    if (!tile.hasPicture || tile.status != localized(R.string.multiview_status_live_video)) {
                         android.os.Handler(android.os.Looper.getMainLooper()).post {
                             if (tile.driver === driver) {
                                 if (!tile.hasPicture) log("multiview: station preview enqueued")
                                 tile.hasPicture = true
-                                tile.status = LIVE_STATUS
+                                tile.status = localized(R.string.multiview_status_live_video)
                             }
                         }
                     }
@@ -1053,7 +1059,7 @@ class MultiviewSession(
             tile.enableSends = 1
             tile.publishing = true
             tile.previewStarted = SystemClock.elapsedRealtime()
-            if (!tile.hasPicture) tile.status = "Waiting for video"
+            if (!tile.hasPicture) tile.status = localized(R.string.multiview_status_waiting_video)
         } finally {
             if (addressReservations[address] == tile.id) addressReservations.remove(address)
         }
@@ -1138,12 +1144,12 @@ class MultiviewSession(
         if (action == "none") {
             if (!pathReady && now - (tile.pathLostAt ?: now) > 45_000) {
                 tile.recovery.fail()
-                tile.failureMessage = "Shared network unavailable. Rejoin it, then reconnect this camera."
+                tile.failureMessage = localized(R.string.multiview_error_shared_network_unavailable)
             }
             return
         }
         log("multiview: repair action=$action snapshot=$json")
-        tile.status = "Reconnecting…"
+        tile.status = localized(R.string.multiview_status_reconnecting)
         val camera = tile.camera ?: return
         if (action == "resendLiveViewEnable") {
             if (!tile.decoder.isPresentationReady) return
@@ -1186,7 +1192,7 @@ class MultiviewSession(
         while (busy && running) delay(200)
         if (!running || tile.camera == null) return
         if (!tile.recovery.beginRejoin()) {
-            tile.failureMessage = "Could not restore preview. Tap Reconnect to try again."
+            tile.failureMessage = localized(R.string.multiview_error_restore_preview)
             return
         }
         connectPreview(tile)
@@ -1311,7 +1317,7 @@ class MultiviewSession(
         persistStage()
         closing = false
         if (pendingReset.isNotEmpty()) {
-            error = "Some cameras could not return to their own Wi-Fi. Keep them powered on and close Multiview again to retry."
+            error = localized(R.string.multiview_error_return_to_wifi)
             return false
         }
         return true
@@ -1377,7 +1383,6 @@ class MultiviewSession(
     }
 
     companion object {
-        const val LIVE_STATUS = "Live · Video mode"
         private const val IDENTITY_KEY = (0x07 shl 8) or 0x07
         private const val RECORD_KEY = (0x02 shl 8) or 0x02
         private const val STATION_OPEN_MS = 15_000L

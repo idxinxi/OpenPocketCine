@@ -42,6 +42,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
+import com.opencapture.openpocketcine.R
 import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
@@ -175,7 +177,7 @@ fun MultiviewScreen(model: AppModel, session: MultiviewSession, onClose: () -> U
                 horizontalArrangement = Arrangement.spacedBy(12.dp),
             ) {
                 CircularProgressIndicator(Modifier.size(20.dp), color = LiveDesign.text, strokeWidth = 2.dp)
-                Text("Returning cameras to their Wi-Fi…", color = LiveDesign.text, style = LiveType.text(15f))
+                Text(stringResource(R.string.multiview_returning_to_wifi), color = LiveDesign.text, style = LiveType.text(15f))
             }
         }
         if (showNetwork) {
@@ -198,7 +200,7 @@ fun MultiviewScreen(model: AppModel, session: MultiviewSession, onClose: () -> U
                         MultiviewPickerRow(
                             camera.id, camera.name,
                             detail = if (camera.hasMultiviewPreview) null
-                            else "Try experimental shared Wi-Fi · Preview unavailable",
+                            else stringResource(R.string.multiview_picker_preview_unavailable),
                             limited = !camera.hasMultiviewPreview,
                         )
                     },
@@ -209,7 +211,7 @@ fun MultiviewScreen(model: AppModel, session: MultiviewSession, onClose: () -> U
                             session.enqueueAdd(camera, tile, experimental = !camera.hasMultiviewPreview)
                         }
                     },
-                    footer = "Each camera will join ${session.ssid}. Approve on the camera if asked.",
+                    footer = stringResource(R.string.multiview_picker_footer, session.ssid),
                     feedback = { haptics.selection() },
                 )
             }
@@ -225,11 +227,11 @@ fun MultiviewScreen(model: AppModel, session: MultiviewSession, onClose: () -> U
     session.error?.let { message ->
         AlertDialog(
             onDismissRequest = { session.error = null },
-            title = { Text("Multiview") },
+            title = { Text(stringResource(R.string.multiview_dialog_title)) },
             text = { Text(message) },
-            confirmButton = { TextButton(onClick = { session.error = null }) { Text("OK") } },
+            confirmButton = { TextButton(onClick = { session.error = null }) { Text(stringResource(R.string.dialog_ok)) } },
             dismissButton = if (session.hasPendingCleanup) {
-                { TextButton(onClick = { session.error = null; close.value() }) { Text("Close anyway") } }
+                { TextButton(onClick = { session.error = null; close.value() }) { Text(stringResource(R.string.multiview_dialog_close_anyway)) } }
             } else null,
         )
     }
@@ -243,7 +245,7 @@ fun MultiviewScreen(model: AppModel, session: MultiviewSession, onClose: () -> U
                     closeStage()
                 }) { Text(MultiviewNetworkRestore.CLOSE_ACTION) }
             },
-            dismissButton = { TextButton(onClick = { showLeave = false }) { Text("Cancel") } },
+            dismissButton = { TextButton(onClick = { showLeave = false }) { Text(stringResource(R.string.dialog_cancel)) } },
         )
     }
 }
@@ -280,7 +282,7 @@ internal fun MultiviewStageContent(
         layout = layout, arrangement = session.layout.arrangement, selected = session.focusedIndex,
         fill = session.fill,
         tools = listOf(MultiviewTool.LAYOUT, MultiviewTool.LUT, MultiviewTool.FIT, MultiviewTool.CAMERA),
-        readouts = multiviewStageReadouts(session.tiles.getOrNull(session.focusedIndex)?.settings ?: CameraStatus()),
+        readouts = multiviewStageReadouts(session.tiles.getOrNull(session.focusedIndex)?.settings ?: CameraStatus(), text = { id -> stringResource(id) }),
         recording = session.anyRecording, groupBusy = session.groupRecordingBusy, confirmsRecord = confirmsRecord,
         actions = MultiviewStageActions(
             select = { session.focusedIndex = it },
@@ -319,7 +321,7 @@ internal fun MultiviewStageContent(
         lut = assigned.any { it.lutEnabled },
         busy = session.busy, closing = session.closing, interactive = interactive,
         network = MultiviewStageButton(
-            "Shared Wi-Fi", MonitorIcon.WIFI, enabled = !session.busy && !session.connectingCameras,
+            stringResource(R.string.multiview_network_button), MonitorIcon.WIFI, enabled = !session.busy && !session.connectingCameras,
             identifier = "multiview.network", action = onNetwork,
         ),
     ) { slot -> picture(session.tiles[slot]) }
@@ -445,6 +447,7 @@ private fun MultiviewNetworkSetup(
     cancel: () -> Unit,
     complete: () -> Unit,
 ) {
+    val context = LocalContext.current
     val saved = remember { session.savedNetworks().asStationNetworks() }
     StationNetworkSetup(
         brand = POCKET_STATION_BRAND,
@@ -457,7 +460,7 @@ private fun MultiviewNetworkSetup(
             session.selectNetworkSource(network.hotspot)
             session.selectNetwork(network.ssid)
             session.password = network.password
-            if (session.configureNetwork()) null else session.networkSetupError ?: "Could not connect. Try again."
+            if (session.configureNetwork()) null else session.networkSetupError ?: context.getString(R.string.multiview_network_connect_failed)
         }, cancel = cancel, complete = complete,
         lockedNetwork = if (session.tiles.any { it.camera != null }) {
             StationNetwork(session.ssid, "", session.usePhoneHotspot)

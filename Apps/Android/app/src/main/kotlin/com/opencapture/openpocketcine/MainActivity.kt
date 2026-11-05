@@ -215,7 +215,7 @@ private fun OpenPocketCineApp(model: AppModel) {
             }
             stage?.let { com.opencapture.openpocketcine.multiview.MultiviewScreen(model, it, onClose = model::closeMultiview) }
             if (model.privacyOpen && !model.showsMultiview) {
-                MonitorLegalDocumentScreen(PocketLegalDocuments, MonitorLegalPage.PRIVACY) { model.privacyOpen = false }
+                MonitorLegalDocumentScreen(pocketLegalDocuments({ id, args -> LocalContext.current.getString(id, *args) }), MonitorLegalPage.PRIVACY) { model.privacyOpen = false }
             }
         }
     }
@@ -233,22 +233,25 @@ internal fun pairingWizard(
     granted: Boolean,
     needsSettings: Boolean,
     radioOn: Boolean,
+    text: TextResolver = ::englishText,
+    format: FormatResolver = englishFormatResolver(),
 ) = PairingWizard(
     bodies = listOf(
-        "Turn the camera on and keep the phone nearby. Pocket and Nano both appear. Choose the one you want.",
-        "If the camera shows Approve, tap it on that camera's screen. First-time pairing can wait up to 90 seconds.",
-        "We read the camera's network over Bluetooth, then join its Wi-Fi for you.",
-        "Exposure, LUTs and scopes go live as soon as the video link is up.",
+        text(R.string.pairing_body_power_on),
+        text(R.string.pairing_body_approve),
+        text(R.string.pairing_body_read_network),
+        text(R.string.pairing_body_live),
     ),
-    approveLines = listOf("Look for an Approve / pairing prompt", "Tap it on the camera screen"),
-    joinLines = listOf("Leave the camera on. It brings up its own Wi-Fi", "On 5.8 GHz that can take about a minute; we keep trying"),
+    approveLines = listOf(text(R.string.pairing_approve_line_look), text(R.string.pairing_approve_line_tap)),
+    joinLines = listOf(text(R.string.pairing_join_line_leave_on), text(R.string.pairing_join_line_58ghz)),
     label = label,
     joinedNetwork = joinedNetwork,
     vpnActive = vpnActive,
     blocker = when {
-        !granted && needsSettings -> "Open Settings"
-        !granted -> "Allow ${DiscoveryPermissions.settingsName(DiscoveryPermissions.discovery()).lowercase()}"
-        !radioOn -> "Turn Bluetooth on"
+        !granted && needsSettings -> text(R.string.pairing_blocker_open_settings)
+        !granted -> format(R.string.pairing_blocker_allow_permission,
+            arrayOf(DiscoveryPermissions.settingsName(DiscoveryPermissions.discovery()).lowercase()))
+        !radioOn -> text(R.string.pairing_blocker_bluetooth_on)
         else -> null
     },
 )
@@ -286,6 +289,8 @@ private fun LinkExperience(
         page = { ShellCoverPage(model, it) },
         coverPresentation = com.opencapture.opencine.appkit.ShellCoverPresentation.SHELL,
         pairingFlow = pairingWizard(
+            text = { id -> context.getString(id) },
+            format = { id, args -> context.getString(id, *args) },
             label = PairingWizard.phaseLabel(
                 when {
                     state.attempts.isEmpty() -> ConnectionPhase.SCANNING
@@ -307,7 +312,7 @@ private fun LinkExperience(
     }
     if (showReportingPrivacy) {
         Dialog(onDismissRequest = { showReportingPrivacy = false }, properties = DialogProperties(usePlatformDefaultWidth = false)) {
-            MonitorLegalDocumentScreen(PocketLegalDocuments, MonitorLegalPage.PRIVACY) { showReportingPrivacy = false }
+            MonitorLegalDocumentScreen(pocketLegalDocuments({ id, args -> context.getString(id, *args) }), MonitorLegalPage.PRIVACY) { showReportingPrivacy = false }
         }
     }
 }

@@ -16,6 +16,11 @@ import com.opencapture.opencine.vocabulary.storageReadout
 import com.opencapture.opencine.media.storageReadout
 import com.opencapture.opencine.core.StorageStatus
 import com.opencapture.opencine.vocabulary.VideoResolution
+import com.opencapture.openpocketcine.FormatResolver
+import com.opencapture.openpocketcine.R
+import com.opencapture.openpocketcine.TextResolver
+import com.opencapture.openpocketcine.englishFormatResolver
+import com.opencapture.openpocketcine.englishText
 
 /** Display values come from the existing throttled tile status; no telemetry polling. */
 internal data class MultiviewTileReadouts(
@@ -38,15 +43,17 @@ internal fun multiviewTileReadouts(
     power: PowerStatus,
     colorFamily: String = "pocket",
     storage: StorageStatus? = null,
+    text: TextResolver = ::englishText,
+    format: FormatResolver = englishFormatResolver(),
 ): MultiviewTileReadouts {
     val elapsed = settings.recordElapsedSec.coerceAtLeast(0)
     val recording = when {
-        recordingBusy -> "WAIT"
-        recordingNote?.contains("rejected") == true || recordingNote?.contains("No confirmation") == true -> "REC ?"
-        recovering -> "HOLD"
-        !recordingAvailable || recordingObservation == null -> "REC —"
-        recordingObservation -> "REC ${elapsed / 60}:${(elapsed % 60).toString().padStart(2, '0')}"
-        else -> "STBY"
+        recordingBusy -> text(R.string.multiview_tally_wait)
+        recordingNote?.contains("rejected") == true || recordingNote?.contains("No confirmation") == true -> text(R.string.multiview_tally_rec_unknown)
+        recovering -> text(R.string.multiview_tally_hold)
+        !recordingAvailable || recordingObservation == null -> text(R.string.multiview_tally_rec_unavailable)
+        recordingObservation -> format(R.string.multiview_tally_recording, arrayOf("${elapsed / 60}:${(elapsed % 60).toString().padStart(2, '0')}"))
+        else -> text(R.string.multiview_tally_standby)
     }
     val resolution = VideoResolution.fromRaw(settings.resolutionCode)?.label ?: "—"
     val fps = if (settings.fps > 0) "${settings.fps}p" else "—"
@@ -59,29 +66,29 @@ internal fun multiviewTileReadouts(
         recording = recording, isRecording = recordingObservation == true,
         format = "$resolution · $fps · $color",
         recovery = when {
-            failure != null -> "Connection needs attention"
-            recovering -> "Restoring picture…"
-            !hasPicture -> "Waiting for picture…"
+            failure != null -> text(R.string.multiview_recovery_attention)
+            recovering -> text(R.string.multiview_recovery_restoring)
+            !hasPicture -> text(R.string.multiview_recovery_waiting_picture)
             else -> null
         },
     )
 }
 
-internal fun multiviewExposureReadouts(settings: CameraStatus): List<Pair<String, String>> = listOf(
-    "ISO" to if (settings.iso > 0) settings.iso.toString() else "—",
-    "SHUTTER" to if (settings.shutterDenom > 0) "1/${settings.shutterDenom}" else "—",
-    "WB" to when {
-        settings.wbMode == CameraCommands.WB_AUTO -> "Auto"
+internal fun multiviewExposureReadouts(settings: CameraStatus, text: TextResolver = ::englishText): List<Pair<String, String>> = listOf(
+    text(R.string.settings_sheet_iso) to if (settings.iso > 0) settings.iso.toString() else "—",
+    text(R.string.multiview_readout_shutter) to if (settings.shutterDenom > 0) "1/${settings.shutterDenom}" else "—",
+    text(R.string.settings_sheet_wb) to when {
+        settings.wbMode == CameraCommands.WB_AUTO -> text(R.string.multiview_readout_wb_auto)
         settings.wbMode < 0 -> "—"
         settings.wbKelvin > 0 -> "${settings.wbKelvin}K"
         else -> "—"
     },
-    "FOCUS" to settings.focusLabel,
+    text(R.string.multiview_readout_focus) to settings.focusLabel,
 )
 
 /** The program readouts and Grid's in-tile row. */
-internal fun multiviewStageReadouts(settings: CameraStatus): List<MultiviewReadout> =
-    multiviewExposureReadouts(settings).map { (title, value) -> MultiviewReadout(title, value) }
+internal fun multiviewStageReadouts(settings: CameraStatus, text: TextResolver = ::englishText): List<MultiviewReadout> =
+    multiviewExposureReadouts(settings, text).map { (title, value) -> MultiviewReadout(title, value) }
 
 /** Pocket's camera option ids beside the shared Live View id. */
 internal object MultiviewTileAction {
@@ -102,6 +109,7 @@ internal fun MultiviewSession.stageTile(index: Int): MultiviewTile? {
         tile.recordingObservation?.first, tile.recordingAvailable,
         tile.recordingBusy, tile.recovering, tile.hasPicture, tile.failureMessage, tile.recordingNote,
         power = power, colorFamily = camera.model.family, storage = tile.control.snapshots.value.storage,
+        text = this::localized, format = { id, args -> localizedFormat(id, *args) },
     )
     val settled = !busy && !tile.connecting && !tile.recovering
     val experimental = tile.failureMessage != null && !tile.experimentalNetwork && tile.identity == null
@@ -110,40 +118,40 @@ internal fun MultiviewSession.stageTile(index: Int): MultiviewTile? {
         name = camera.name, model = camera.model.name, format = readouts.format,
         storage = readouts.storage, timecode = tile.timecodeReadout,
         tally = readouts.recording, recording = readouts.isRecording, lut = tile.lutEnabled,
-        readouts = multiviewStageReadouts(tile.settings),
+        readouts = multiviewStageReadouts(tile.settings, this::localized),
         status = readouts.recovery?.let { text ->
             MultiviewTileStatus(
                 text, detail = tile.failureMessage ?: tile.status,
                 inProgress = tile.failureMessage == null && !tile.networkVerified,
                 actions = if (tile.failureMessage == null) emptyList() else listOfNotNull(
-                    MultiviewCameraAction(MultiviewTileAction.EXPERIMENTAL, "Try experimental shared Wi-Fi", enabled = settled)
+                    MultiviewCameraAction(MultiviewTileAction.EXPERIMENTAL, localized(R.string.multiview_action_try_experimental), enabled = settled)
                         .takeIf { experimental },
-                    MultiviewCameraAction(MultiviewTileAction.RECONNECT, "Reconnect", enabled = settled),
+                    MultiviewCameraAction(MultiviewTileAction.RECONNECT, localized(R.string.multiview_action_reconnect), enabled = settled),
                     MultiviewCameraAction(
-                        MultiviewTileAction.REMOVE, "Remove", MultiviewCameraAction.Kind.DESTRUCTIVE, enabled = settled,
+                        MultiviewTileAction.REMOVE, localized(R.string.multiview_action_remove_tile), MultiviewCameraAction.Kind.DESTRUCTIVE, enabled = settled,
                     ),
                 ),
             )
         },
         failure = tile.failureMessage,
-        footnote = "Remove this tile to enable Record all for your other cameras."
+        footnote = localized(R.string.multiview_footnote_remove_tile)
             .takeIf { tile.networkVerified && !camera.hasMultiviewPreview },
         actions = listOfNotNull(
             MultiviewCameraAction(
-                MultiviewCameraAction.LIVE_VIEW, "Open Live View", enabled = tile.controlHost != null && !tile.connecting,
+                MultiviewCameraAction.LIVE_VIEW, localized(R.string.multiview_action_open_live), enabled = tile.controlHost != null && !tile.connecting,
             ),
             MultiviewCameraAction(
                 MultiviewTileAction.RECORD,
-                if (tile.recordingObservation?.first == true) "Stop recording" else "Start recording",
+                if (tile.recordingObservation?.first == true) localized(R.string.multiview_action_stop_recording) else localized(R.string.multiview_action_start_recording),
                 MultiviewCameraAction.Kind.RECORD,
                 enabled = record.isExecutable && !groupRecordingBusy && !closing,
             ),
-            MultiviewCameraAction(MultiviewTileAction.LUT, if (tile.lutEnabled) "Disable Auto LUT" else "Enable Auto LUT"),
-            MultiviewCameraAction(MultiviewTileAction.RECONNECT, "Reconnect", enabled = settled),
-            MultiviewCameraAction(MultiviewTileAction.EXPERIMENTAL, "Try experimental shared Wi-Fi", enabled = settled)
+            MultiviewCameraAction(MultiviewTileAction.LUT, if (tile.lutEnabled) localized(R.string.multiview_action_disable_auto_lut) else localized(R.string.multiview_action_enable_auto_lut)),
+            MultiviewCameraAction(MultiviewTileAction.RECONNECT, localized(R.string.multiview_action_reconnect), enabled = settled),
+            MultiviewCameraAction(MultiviewTileAction.EXPERIMENTAL, localized(R.string.multiview_action_try_experimental), enabled = settled)
                 .takeIf { experimental },
             MultiviewCameraAction(
-                MultiviewTileAction.REMOVE, "Remove camera", MultiviewCameraAction.Kind.DESTRUCTIVE,
+                MultiviewTileAction.REMOVE, localized(R.string.multiview_action_remove_camera), MultiviewCameraAction.Kind.DESTRUCTIVE,
                 enabled = !busy && !tile.connecting && !groupRecordingBusy && !tile.recordingBusy && !closing,
             ),
         ),
