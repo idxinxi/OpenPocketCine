@@ -156,6 +156,7 @@ open class MainActivity : ComponentActivity() {
 @Composable
 private fun OpenPocketCineApp(model: AppModel) {
     val activity = LocalActivity.current
+    val context = LocalContext.current
     lateinit var discovery: PermissionGate
     val enableBluetooth =
         rememberLauncherForActivityResult(ActivityResultContracts.StartActivityForResult()) {
@@ -215,7 +216,7 @@ private fun OpenPocketCineApp(model: AppModel) {
             }
             stage?.let { com.opencapture.openpocketcine.multiview.MultiviewScreen(model, it, onClose = model::closeMultiview) }
             if (model.privacyOpen && !model.showsMultiview) {
-                MonitorLegalDocumentScreen(pocketLegalDocuments({ id, args -> LocalContext.current.getString(id, *args) }), MonitorLegalPage.PRIVACY) { model.privacyOpen = false }
+                MonitorLegalDocumentScreen(pocketLegalDocuments({ id, args -> context.applicationContext.getString(id, *args) }), MonitorLegalPage.PRIVACY) { model.privacyOpen = false }
             }
         }
     }
@@ -289,8 +290,8 @@ private fun LinkExperience(
         page = { ShellCoverPage(model, it) },
         coverPresentation = com.opencapture.opencine.appkit.ShellCoverPresentation.SHELL,
         pairingFlow = pairingWizard(
-            text = { id -> context.getString(id) },
-            format = { id, args -> context.getString(id, *args) },
+            text = { id -> context.applicationContext.getString(id) },
+            format = { id, args -> context.applicationContext.getString(id, *args) },
             label = PairingWizard.phaseLabel(
                 when {
                     state.attempts.isEmpty() -> ConnectionPhase.SCANNING
@@ -312,7 +313,7 @@ private fun LinkExperience(
     }
     if (showReportingPrivacy) {
         Dialog(onDismissRequest = { showReportingPrivacy = false }, properties = DialogProperties(usePlatformDefaultWidth = false)) {
-            MonitorLegalDocumentScreen(pocketLegalDocuments({ id, args -> context.getString(id, *args) }), MonitorLegalPage.PRIVACY) { showReportingPrivacy = false }
+            MonitorLegalDocumentScreen(pocketLegalDocuments({ id, args -> context.applicationContext.getString(id, *args) }), MonitorLegalPage.PRIVACY) { showReportingPrivacy = false }
         }
     }
 }

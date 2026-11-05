@@ -69,11 +69,11 @@ fun PairingCallouts(model: AppModel, discovery: PermissionGate, onEnableBluetoot
         radioOn = radioOn,
         discovery = discovery,
         copy = PairingCalloutCopy(
-            cameraNoun = context.getString(R.string.pairing_camera_noun),
-            precheck = context.getString(R.string.pairing_precheck),
+            cameraNoun = context.applicationContext.getString(R.string.pairing_camera_noun),
+            precheck = context.applicationContext.getString(R.string.pairing_precheck),
             // The vendor-app tip itself still comes from the shared layer (English);
             // only this app's own second sentence is localized here.
-            stillLooking = "${DjiFailures.DJI_APPS_TIP} ${context.getString(R.string.pairing_still_looking)}",
+            stillLooking = "${DjiFailures.DJI_APPS_TIP} ${context.applicationContext.getString(R.string.pairing_still_looking)}",
         ),
         log = DiagnosticCenter::log,
         onEnableBluetooth = onEnableBluetooth,

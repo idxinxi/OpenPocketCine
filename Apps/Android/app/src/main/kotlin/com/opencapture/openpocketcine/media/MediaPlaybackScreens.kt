@@ -183,7 +183,7 @@ fun MediaPhotoViewer(model: AppModel, file: MediaFile, controller: MediaLibraryC
         // still look (peaking, false colour, zebra on the still itself).
         usageStore = remember(context) { OperatorPrefs.assistToolUsagePreferences(context) },
         assists = remember { com.opencapture.opencine.cameracontrols.MonitorOperatorAssistSource(
-            com.opencapture.openpocketcine.assists.appAssistHost({ id -> context.getString(id) }), null, {}, null) },
+            com.opencapture.openpocketcine.assists.appAssistHost({ id -> context.applicationContext.getString(id) }), null, {}, null) },
         stillLook = remember { com.opencapture.opencine.appkitnative.MonitorBitmapStillLook() })
 }
 

@@ -41,6 +41,7 @@ import com.opencapture.opencine.multicam.RecordPlan
 import com.opencapture.opencine.multicam.ResourceAdmission
 import com.opencapture.opencine.multicam.ResourceRequest
 import com.opencapture.openpocketcine.AppModel
+import com.opencapture.openpocketcine.R
 import com.opencapture.openpocketcine.diagnostics.DiagnosticCenter
 import com.opencapture.opencine.media.FeedEffectsRenderPlan
 import com.opencapture.opencine.cameracontrols.MonitorFeedEffectsPlans

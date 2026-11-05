@@ -266,6 +266,7 @@ internal fun MultiviewStageContent(
     scope: CoroutineScope = rememberCoroutineScope(),
     picture: @Composable (MultiviewSession.Tile) -> Unit,
 ) {
+    val context = LocalContext.current
     val haptics = LocalOperatorHaptics.current
     val assigned = session.tiles.filter { it.camera != null }
     // Every assigned tile has both working adapters: the settings panel (which opens that tile's
@@ -282,7 +283,7 @@ internal fun MultiviewStageContent(
         layout = layout, arrangement = session.layout.arrangement, selected = session.focusedIndex,
         fill = session.fill,
         tools = listOf(MultiviewTool.LAYOUT, MultiviewTool.LUT, MultiviewTool.FIT, MultiviewTool.CAMERA),
-        readouts = multiviewStageReadouts(session.tiles.getOrNull(session.focusedIndex)?.settings ?: CameraStatus(), text = { id -> stringResource(id) }),
+        readouts = multiviewStageReadouts(session.tiles.getOrNull(session.focusedIndex)?.settings ?: CameraStatus(), text = { id -> context.applicationContext.getString(id) }),
         recording = session.anyRecording, groupBusy = session.groupRecordingBusy, confirmsRecord = confirmsRecord,
         actions = MultiviewStageActions(
             select = { session.focusedIndex = it },
@@ -460,7 +461,7 @@ private fun MultiviewNetworkSetup(
             session.selectNetworkSource(network.hotspot)
             session.selectNetwork(network.ssid)
             session.password = network.password
-            if (session.configureNetwork()) null else session.networkSetupError ?: context.getString(R.string.multiview_network_connect_failed)
+            if (session.configureNetwork()) null else session.networkSetupError ?: context.applicationContext.getString(R.string.multiview_network_connect_failed)
         }, cancel = cancel, complete = complete,
         lockedNetwork = if (session.tiles.any { it.camera != null }) {
             StationNetwork(session.ssid, "", session.usePhoneHotspot)

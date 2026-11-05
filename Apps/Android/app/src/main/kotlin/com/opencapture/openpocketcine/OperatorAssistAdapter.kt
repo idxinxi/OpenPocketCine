@@ -15,11 +15,12 @@ import kotlinx.coroutines.flow.map
 /** Native scope publications and one bounded native preview. Common owners compose every assist. */
 @Composable
 internal fun rememberOperatorAssistSource(model: AppModel, status: CameraStatus): MonitorOperatorAssistSource {
+    val context = LocalContext.current
     val publications = remember(model.scopeBus) { model.scopeBus.publications.map { it.bundle } }
     val selection = model.lutSelection
-    val look = AssistLutPicker(appLutPickerCopy({ id -> LocalContext.current.getString(id) }), selection, model::updateLutSelection, appLutLibrary(LocalContext.current),
+    val look = AssistLutPicker(appLutPickerCopy({ id -> context.applicationContext.getString(id) }), selection, model::updateLutSelection, appLutLibrary(LocalContext.current),
         profile = model.camera?.captureProfile?.looks ?: com.opencapture.opencine.dji.DjiCameraLUTProfile.make("pocket", null), colorMode = status.monitorColorMode)
-    return MonitorOperatorAssistSource(appAssistHost({ id -> LocalContext.current.getString(id) }), publications, {}, look, preview = { tool ->
+    return MonitorOperatorAssistSource(appAssistHost({ id -> context.applicationContext.getString(id) }), publications, {}, look, preview = { tool ->
         AssistInspectorImagePreview(tool, model.assist, model, selection, status.monitorColorMode, false)
     })
 }

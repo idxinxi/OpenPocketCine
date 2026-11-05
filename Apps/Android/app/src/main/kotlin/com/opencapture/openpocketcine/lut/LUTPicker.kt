@@ -42,10 +42,11 @@ internal fun appLutLibrary(context: Context): MonitorLutLibrary = processLutLibr
 /** Settings sheet. Same body as the assist-tray form; 50/50 stays inline. */
 @Composable
 fun LUTPicker(model: AppModel, onClose: () -> Unit) {
+    val context = LocalContext.current
     val assist = model.assist
     val status by model.session.chromeStatus.collectAsState()
     LUTPicker(
-        copy = appLutPickerCopy({ id -> LocalContext.current.getString(id) }),
+        copy = appLutPickerCopy({ id -> context.applicationContext.getString(id) }),
         selection = model.lutSelection,
         onSelect = model::updateLutSelection,
         library = appLutLibrary(LocalContext.current),
