@@ -430,6 +430,31 @@ jobs:
         with:
           ndk-version: r27c
           link-to-sdk: true
+      # The Swift 6.3.3 toolchain was built for Ubuntu 24.04 and needs
+      # libxml2.so.2, but Ubuntu 26.04 only ships libxml2.so.16 (package
+      # libxml2-16, an ABI break), so there is no apt package to install.
+      # Extract the real 2.9.14 library from the Ubuntu 24.04 package into a
+      # compat dir and expose it to the Swift steps only via LD_LIBRARY_PATH;
+      # never install it system-wide. libxml2.so.2 itself needs
+      # libicuuc.so.74, so the ICU 74 runtime comes along from 24.04 too.
+      - name: Install libxml2.so.2 compat shim for the Swift toolchain
+        run: |
+          set -euo pipefail
+          COMPAT="$RUNNER_TEMP/swift-compat"
+          mkdir -p "$COMPAT"
+          cd "$COMPAT"
+          curl -fsSL --retry 3 -o libxml2.deb "https://archive.ubuntu.com/ubuntu/pool/main/libx/libxml2/libxml2_2.9.14+dfsg-1.3ubuntu3_amd64.deb"
+          curl -fsSL --retry 3 -o libicu74.deb "https://archive.ubuntu.com/ubuntu/pool/main/i/icu/libicu74_74.2-1ubuntu3_amd64.deb"
+          echo "8c4efd7abe155df3cf0f9b64d659f2d866215785f8e8c44234fbb341d58cc967  libxml2.deb" | sha256sum -c -
+          echo "d29c97a21a3e3254731cfac186e4d4e611e5e67d2c9a0430f6acfbd9acaefa2e  libicu74.deb" | sha256sum -c -
+          dpkg-deb --fsys-tarfile libxml2.deb | tar -xO ./usr/lib/x86_64-linux-gnu/libxml2.so.2.9.14 > libxml2.so.2.9.14
+          dpkg-deb --fsys-tarfile libicu74.deb | tar -xO ./usr/lib/x86_64-linux-gnu/libicuuc.so.74.2 > libicuuc.so.74.2
+          dpkg-deb --fsys-tarfile libicu74.deb | tar -xO ./usr/lib/x86_64-linux-gnu/libicudata.so.74.2 > libicudata.so.74.2
+          ln -s libxml2.so.2.9.14 libxml2.so.2
+          ln -s libicuuc.so.74.2 libicuuc.so.74
+          ln -s libicudata.so.74.2 libicudata.so.74
+          rm libxml2.deb libicu74.deb
+          echo "LD_LIBRARY_PATH=$COMPAT${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" >> "$GITHUB_ENV"
       - name: Install Swift Android SDK
         run: ./scripts/ci-install-swift-android.sh
 
