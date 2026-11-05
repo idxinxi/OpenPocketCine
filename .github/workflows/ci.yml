@@ -430,7 +430,12 @@ jobs:
         with:
           ndk-version: r27c
           link-to-sdk: true
-      - name: Install Swift Android SDK
+      # The Swift 6.3.3 toolchain's swift-sdk links libxml2.so.2, which the
+      # runner image no longer ships: without it the install step fails with
+      # exit 127 ("error while loading shared libraries: libxml2.so.2").
+      - name: Install libxml2 for the Swift toolchain
+        run: sudo apt-get update && sudo apt-get install -y libxml2
+              - name: Install Swift Android SDK
         run: ./scripts/ci-install-swift-android.sh
 
       # The release bundle part runs on every pull request, as OpenZCine does.
