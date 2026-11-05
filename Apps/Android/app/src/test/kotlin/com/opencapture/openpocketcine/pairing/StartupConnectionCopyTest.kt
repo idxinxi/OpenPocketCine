@@ -14,8 +14,10 @@ class StartupConnectionCopyTest {
     @Test
     fun aCameraThatNeverAnswersNamesFrameTapAndMimo() {
         assertEquals(tip, DjiFailures.DJI_APPS_TIP)
-        assertTrue(StartupConnectionCopy.PAIRING_PRECHECK.contains("DJI Frame Tap") && StartupConnectionCopy.PAIRING_PRECHECK.contains("DJI Mimo"))
-        assertTrue(StartupConnectionCopy.STILL_LOOKING.startsWith(tip))
+        // The pair page's own precheck / still-looking sentences moved to string
+        // resources (values/strings.xml, values-zh-rCN/strings.xml); the vendor-app
+        // tip prefix above still comes from the shared layer and is what this test
+        // pins, together with the failure cards below.
         val card = DjiFailures.classify(null, ConnectionPhase.OPENING_DATALINK, "camera never answered the datalink handshake")
         // PAB-C-23: the baseline friendly sentence, never the raw handshake text (OpenCine #122).
         assertEquals("The camera never answered the video link. $tip", card.message)

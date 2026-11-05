@@ -14,17 +14,14 @@ import com.opencapture.opencine.cameracontrols.OperatorLinkSample
 import com.opencapture.opencine.cameracontrols.OperatorSetupApp
 import com.opencapture.opencine.cameracontrols.OperatorSetupState
 import com.opencapture.opencine.cameracontrols.formatAppVersion
-import com.opencapture.openpocketcine.assists.AppAssistHost
+import com.opencapture.openpocketcine.assists.appAssistHost
 import com.opencapture.openpocketcine.diagnostics.AppDiagnostics
 import com.opencapture.openpocketcine.diagnostics.DiagnosticCenter
 import com.opencapture.opencine.runtime.MonitorGlesUpscaler
 import com.opencapture.openpocketcine.lut.LUTPicker
 import com.opencapture.openpocketcine.settings.PanelCloseButton
 
-object SettingsHelpCopy : OperatorHelpCopy("OpenPocketCine") {
-    const val PROTOCOL =
-        "Camera control speaks DUML over Bluetooth and the camera's Wi-Fi. No DJI SDK is bundled or required."
-}
+object SettingsHelpCopy : OperatorHelpCopy("OpenPocketCine")
 
 object OpenPocketCineLinks {
     const val SOURCE = "https://github.com/erik-sutton95/OpenPocketCine"
@@ -57,7 +54,7 @@ internal fun operatorSetupApp(model: AppModel) = OperatorSetupApp(
     wordmark = "OPENPOCKETCINE",
     help = SettingsHelpCopy,
     prefs = OperatorPrefs,
-    assistHost = AppAssistHost,
+    assistHost = appAssistHost(model::localized),
     upscalers = MonitorGlesUpscaler.supported.map { it.label },
     upscaler = { OperatorPrefs.feedUpscaler(it).label },
     setUpscaler = { context, label -> OperatorPrefs.setFeedUpscaler(context, MonitorGlesUpscaler.fromStored(label)) },
@@ -67,10 +64,10 @@ internal fun operatorSetupApp(model: AppModel) = OperatorSetupApp(
             session.videoPackets, session.hasVideoFormat)
     },
     information = OperatorAppInformation(
-        theme = "DJI Black", themeHelp = SettingsHelpCopy.THEME,
-        protocol = "DUML / BLE + Wi-Fi", protocolHelp = SettingsHelpCopy.PROTOCOL,
+        theme = model.localized(R.string.settings_theme_dji_black), themeHelp = SettingsHelpCopy.THEME,
+        protocol = model.localized(R.string.settings_protocol_label), protocolHelp = model.localized(R.string.settings_protocol_help),
         version = formatAppVersion(BuildConfig.VERSION_NAME, BuildConfig.VERSION_CODE.toLong()),
-        versionHelp = SettingsHelpCopy.APP_VERSION, termsHelp = "How you can use OpenPocketCine.",
+        versionHelp = SettingsHelpCopy.APP_VERSION, termsHelp = model.localized(R.string.settings_terms_help),
     ),
     sourceUrl = OpenPocketCineLinks.SOURCE,
     diagnostics = OperatorDiagnostics(
@@ -79,7 +76,7 @@ internal fun operatorSetupApp(model: AppModel) = OperatorSetupApp(
         shareReport = { DiagnosticCenter.shareReport(it, model.session, copyForFeedback = false) },
     ),
     reportProblem = { model.problemReportOpen = true },
-    legal = PocketLegalDocuments,
+    legal = pocketLegalDocuments({ id, args -> model.localizedFormat(id, *args) }),
     lutPicker = { onClose -> LUTPicker(model = model, onClose = onClose) },
     cacheSource = {
         // Every camera bucket, retaining the current gallery's operation fencing and revision.

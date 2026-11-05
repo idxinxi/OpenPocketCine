@@ -1,5 +1,8 @@
 package com.opencapture.openpocketcine.settings
 
+import com.opencapture.openpocketcine.R
+import androidx.compose.ui.res.stringResource
+import androidx.annotation.StringRes
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.detectHorizontalDragGestures
@@ -55,28 +58,28 @@ internal fun Modifier.settingsClickable(role: Role, enabled: Boolean = true, onC
     )
 
 /** One named swatch for [SettingsColorDots] (iOS `SettingsColorDots.Dot`). */
-data class SettingsColorDot(val name: String, val color: Color)
+data class SettingsColorDot(@StringRes val nameRes: Int, val color: Color)
 
 /** iOS `SettingsPalette` - zone-scoped stripe/peaking colours; each dot shows the colour its overlay paints. */
 object SettingsPalette {
     val highlight: List<SettingsColorDot> =
         listOf(
-            SettingsColorDot("White", LiveDesign.text),
-            SettingsColorDot("Amber", LiveDesign.amber),
-            SettingsColorDot("Red", LiveDesign.rec),
+            SettingsColorDot(R.string.color_white, LiveDesign.text),
+            SettingsColorDot(R.string.color_amber, LiveDesign.amber),
+            SettingsColorDot(R.string.color_red, LiveDesign.rec),
         )
     val midtone: List<SettingsColorDot> =
         listOf(
-            SettingsColorDot("Amber", LiveDesign.amber),
-            SettingsColorDot("Cyan", Color(0f, 0.85f, 0.9f)),
-            SettingsColorDot("Green", LiveDesign.good),
+            SettingsColorDot(R.string.color_amber, LiveDesign.amber),
+            SettingsColorDot(R.string.color_cyan, Color(0f, 0.85f, 0.9f)),
+            SettingsColorDot(R.string.color_green, LiveDesign.good),
         )
     val peaking: List<SettingsColorDot> =
         listOf(
-            SettingsColorDot("White", LiveDesign.text),
-            SettingsColorDot("Blue", Color(64f / 255f, 142f / 255f, 1f)),
-            SettingsColorDot("Red", LiveDesign.rec),
-            SettingsColorDot("Green", LiveDesign.good),
+            SettingsColorDot(R.string.color_white, LiveDesign.text),
+            SettingsColorDot(R.string.color_blue, Color(64f / 255f, 142f / 255f, 1f)),
+            SettingsColorDot(R.string.color_red, LiveDesign.rec),
+            SettingsColorDot(R.string.color_green, LiveDesign.good),
         )
 }
 
@@ -135,12 +138,13 @@ fun GlassPillSlider(value: Int, range: IntRange, onChange: (Int) -> Unit, modifi
 /** Floating xmark close button on a glass circle (iOS `CloseButton`, 37pt). */
 @Composable
 fun PanelCloseButton(onClick: () -> Unit, modifier: Modifier = Modifier) {
+    val closeDescription = stringResource(R.string.panel_close_description)
     Box(
         modifier
             .size(37.dp)
             .panelGlass(CircleShape)
             .settingsClickable(role = Role.Button, onClick = onClick)
-            .semantics { contentDescription = "Close" },
+            .semantics { contentDescription = closeDescription },
         contentAlignment = Alignment.Center,
     ) {
         MonitorIcon(

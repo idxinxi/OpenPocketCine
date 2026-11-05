@@ -127,8 +127,9 @@ class OperatorSetupContractTest {
     @Test
     fun legalBodiesAreAndroidKeyedAndIncludeNotice() {
         assertEquals(listOf("Privacy", "Terms", "Licenses", "NOTICE"), MonitorLegalPage.entries.map { it.title })
-        val privacy = (PocketLegalDocuments.privacy as MonitorLegalDocument.Text).body
-        assertEquals(OpenPocketCineLinks.TERMS, (PocketLegalDocuments.terms as MonitorLegalDocument.Link).url)
+        val docs = pocketLegalDocuments()
+        val privacy = (docs.privacy as MonitorLegalDocument.Text).body
+        assertEquals(OpenPocketCineLinks.TERMS, (docs.terms as MonitorLegalDocument.Link).url)
         assertTrue(privacy.contains("Android Keystore"))
         assertFalse(privacy.contains("iOS Keychain"))
         assertTrue(privacy.contains("Android may ask for location"))
@@ -148,10 +149,10 @@ class OperatorSetupContractTest {
         assertFalse(privacy.contains("prepares an email to support@openpocketcine.app"))
         assertFalse(privacy.contains("does not send analytics, crash reports"))
         val root = java.io.File(System.getProperty("openpocketcine.repositoryRoot"))
-        val notice = PocketLegalDocuments.notice
+        val notice = docs.notice
         assertTrue(notice.available)
         assertEquals(root.resolve("NOTICE").readText().trim(), notice.body)
-        val licenses = PocketLegalDocuments.licenses
+        val licenses = docs.licenses
         assertTrue(licenses.available)
         val platform = assertNotNull(MonitorPlatformLegalNotices.text)
         assertTrue(platform.contains(root.resolve("../OpenCine/THIRD-PARTY-NOTICES.md").readText().trim()))

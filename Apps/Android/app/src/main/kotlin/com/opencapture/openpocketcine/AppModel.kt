@@ -19,6 +19,7 @@ import com.opencapture.opencine.dji.GimbalMoveEngine
 import com.opencapture.opencine.motion.GimbalWaypointSlot
 import com.opencapture.opencine.runtime.MonitorHDRDisplay
 import android.content.Context
+import androidx.annotation.StringRes
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -94,6 +95,12 @@ class AppModel(
     val reviewLaunch: com.opencapture.monitorui.ReviewLaunch? = null,
 ) : GamepadHost, GimbalChromeHost, CaptureSheetHost, OperatorSetupModel, AutoCloseable {
     private val appContext = context.applicationContext
+
+    /** Resolve UI copy for text built outside composition; the device locale wins. */
+    internal fun localized(@StringRes id: Int): String = appContext.getString(id)
+
+    internal fun localizedFormat(@StringRes id: Int, vararg args: Any): String = appContext.getString(id, *args)
+
     /** One actual cache root/lifetime shared by gallery IO and operator settings. */
     val mediaCacheRoot = com.opencapture.opencine.appkit.MonitorMediaCacheRoot(
         java.io.File(appContext.noBackupFilesDir, "OpenPocketCine/media"))
@@ -144,7 +151,7 @@ class AppModel(
                     integration,
                     IntegrationSlots(
                         addSetup = { camera, done -> addSetupFlow(this, camera, done) },
-                        nearbyCard = { camera -> nearbyCard(camera, port.found.value.firstOrNull { it.id == camera.id }) },
+                        nearbyCard = { camera -> nearbyCard(camera, port.found.value.firstOrNull { it.id == camera.id }, localized(R.string.saved_camera_unverified_suffix), localized(R.string.saved_camera_needs_approval)) },
                     ),
                 ),
             )
@@ -720,14 +727,16 @@ class AppModel(
          * A nearby camera as the cameras and pair pages have always shown it (main's
          * `NearbyCameraRow`): Pocket or Nano by name, unverified bodies marked.
          */
-        fun nearbyCard(camera: NearbyCamera, found: FoundCamera?): NearbyCardCopy {
+        fun nearbyCard(camera: NearbyCamera, found: FoundCamera?,
+            unverifiedSuffix: String = " · unverified",
+            needsApproval: String = "Needs approval on the camera"): NearbyCardCopy {
             val name = found?.name ?: camera.name
             val model = found?.model?.name ?: camera.model ?: camera.name
             return NearbyCardCopy(
                 FoundCameraIdentity.listTitle(name, model),
                 FoundCameraIdentity.listSubtitle(name, model, found?.model?.family ?: "other") +
-                    if (found?.model?.verified == false) " · unverified" else "",
-                "Needs approval on the camera",
+                    if (found?.model?.verified == false) unverifiedSuffix else "",
+                needsApproval,
             )
         }
         /** The records every earlier build reads, kept mirrored (SHELL-02 D11). */

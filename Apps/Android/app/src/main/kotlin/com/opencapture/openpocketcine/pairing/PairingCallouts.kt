@@ -25,6 +25,8 @@ import com.opencapture.opencine.vocabulary.ConnectionPhase
 import com.opencapture.openpocketcine.AppModel
 import com.opencapture.openpocketcine.diagnostics.DiagnosticCenter
 import com.opencapture.opencine.appkit.PairingCalloutCopy
+import com.opencapture.opencine.dji.DjiFailures
+import com.opencapture.openpocketcine.R
 import com.opencapture.opencine.appkit.PairingCalloutStack
 
 /** A saved camera's DJI setups (SHELL-02 document: camera Wi-Fi is the `ap` route). */
@@ -57,6 +59,7 @@ fun SavedCamera.ssid(setup: CameraConnectionSetup): String? = when (setup) {
  */
 @Composable
 fun PairingCallouts(model: AppModel, discovery: PermissionGate, onEnableBluetooth: () -> Unit) {
+    val context = LocalContext.current
     val phase by model.session.phaseFlow.collectAsState()
     val radioOn by model.session.radioOn.collectAsState()
     PairingCalloutStack(
@@ -66,9 +69,11 @@ fun PairingCallouts(model: AppModel, discovery: PermissionGate, onEnableBluetoot
         radioOn = radioOn,
         discovery = discovery,
         copy = PairingCalloutCopy(
-            cameraNoun = "Pocket",
-            precheck = StartupConnectionCopy.PAIRING_PRECHECK,
-            stillLooking = StartupConnectionCopy.STILL_LOOKING,
+            cameraNoun = context.applicationContext.getString(R.string.pairing_camera_noun),
+            precheck = context.applicationContext.getString(R.string.pairing_precheck),
+            // The vendor-app tip itself still comes from the shared layer (English);
+            // only this app's own second sentence is localized here.
+            stillLooking = "${DjiFailures.DJI_APPS_TIP} ${context.applicationContext.getString(R.string.pairing_still_looking)}",
         ),
         log = DiagnosticCenter::log,
         onEnableBluetooth = onEnableBluetooth,
